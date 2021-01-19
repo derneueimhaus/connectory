@@ -5,7 +5,7 @@ import SearchFilter from "../components/SearchFilter";
 export default function Home() {
   return (
     <div>
-      <h4>This is the Home page</h4>
+      <h4>Join the Change= network and connect with collaborators</h4>
       <SearchFilter />
       <ProfilesList />
     </div>

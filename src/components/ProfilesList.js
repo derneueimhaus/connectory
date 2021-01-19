@@ -7,7 +7,7 @@ import testPhoto from "../assets/blank.png";
 
 const testProfObj = [
   {
-    name: "testy testerson",
+    name: "test testerson",
     profession: "marketing",
     email: "test@test.com",
     telephone: "012345678",
@@ -34,7 +34,7 @@ const testProfObj = [
     photo: testPhoto,
   },
   {
-    name: "testy testerson",
+    name: "test testerson",
     profession: "marketing",
     email: "test@test.com",
     telephone: "012345678",

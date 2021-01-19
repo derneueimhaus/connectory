@@ -9,6 +9,7 @@ import NavBar from "./components/NavBar";
 
 import Account from "./views/Account";
 import Home from "./views/Home";
+import Profile from "./views/Profile";
 
 import "./styles/App.css";
 
@@ -22,6 +23,7 @@ function App() {
           <Switch>
             <Route exact path="/" component={Home} />
             <Route path="/account" component={Account} />
+            <Route path="/profile/:userId" component={Profile} />
           </Switch>
         </div>
       </Provider>

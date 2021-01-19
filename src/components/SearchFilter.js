@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import { addSearchTerm } from "../redux/actions/searchActions";
 
 import "../styles/SearchFilter.css";
+import Filters from "./Filters";
 
 class SearchFilter extends Component {
   constructor(props) {
@@ -41,7 +42,7 @@ class SearchFilter extends Component {
             Filters
           </button>
         </div>
-        {this.state.showFilters && <div>Filters go here</div>}
+        {this.state.showFilters && <Filters />}
       </div>
     );
   }
