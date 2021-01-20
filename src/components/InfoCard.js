@@ -48,9 +48,7 @@ export default class InfoCard extends Component {
               <p>{userData.telephone}</p>
               <p>{userData.email}</p>
               <p>
-                <a href={userData.website} target="_blank">
-                  {userData.website}
-                </a>
+                <a href={`https://${userData.website}`}>{userData.website}</a>
               </p>
             </div>
             <div className="featured-exp">
