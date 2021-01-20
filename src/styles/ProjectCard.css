@@ -1,7 +1,4 @@
-.projects-container {
-  display: flex;
-  justify-content: space-evenly;
-  background-image: url(../assets/back-blauw.png);
+.project-card {
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
