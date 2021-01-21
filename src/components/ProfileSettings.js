@@ -7,6 +7,7 @@ import { connect } from "react-redux";
 import "../styles/Settings.css";
 
 import testPhoto from "../assets/blank.png";
+import ExperienceInput from "./ExperienceInput";
 
 const professionsArray = ["testA", "testB", "testC", "testD"];
 
@@ -15,6 +16,29 @@ const locationsArray = [
   "Change= NW",
   "Change= PRO",
   "Change= Alumni",
+];
+
+const expData = [
+  {
+    userId: 1,
+    featured: true,
+    title: "Head of Marketing",
+    company: "Coca-Cola",
+    yearStart: 2017,
+    yearEnd: 2019,
+    description:
+      "Limitations and exclusions of liability: caveats to limits of liability; interpretation of limits of liability; no liability for force majeure; no liability for loss of profits; no liability for loss of revenue; no liability for loss of use; no liability for loss of opportunities; no liability for loss of data; no liability for consequential loss; per event liability cap upon services contract; aggregate liability cap upon services contract.",
+  },
+  {
+    userId: 1,
+    featured: true,
+    title: "Senor Marketing Manager",
+    company: "IBM",
+    yearStart: 2016,
+    yearEnd: 2017,
+    description:
+      "Limitations and exclusions of liability: caveats to limits of liability; interpretation of limits of liability; no liability for force majeure; no liability for loss of profits; no liability for loss of revenue; no liability for loss of use; no liability for loss of opportunities; no liability for loss of data; no liability for consequential loss; per event liability cap upon services contract; aggregate liability cap upon services contract.",
+  },
 ];
 
 export class ProfileSettings extends Component {
@@ -195,6 +219,13 @@ export class ProfileSettings extends Component {
             </div>
           </div>
         </div>
+        <hr style={{ border: "solid 1px purple" }} />
+        <h4>Experience</h4>
+        <h5>Experience 1</h5>
+        <p>Experience 1 is set as your featured experience by default.</p>
+        <ExperienceInput data={expData[0]} index={1} />
+        <h5>Experience 2</h5>
+        <ExperienceInput data={expData[1]} index={2} />
       </div>
     );
   }

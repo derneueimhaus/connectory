@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function Explanations({ data }) {
+export default function Experience({ data }) {
   return (
     <div>
       <h4>Experience</h4>

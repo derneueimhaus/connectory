@@ -16,6 +16,17 @@
   width: 90%;
 }
 
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.input-description {
+  height: 4em;
+  word-wrap: break-word;
+}
+
 /* Profile settings styling */
 .basic-info-form {
   display: flex;
@@ -28,13 +39,13 @@
   flex-wrap: wrap;
 }
 
-.input-description {
-  height: 4em;
-  word-wrap: break-word;
-}
-
 .contact-form div {
   flex: 2;
+}
+
+.experience-form {
+  display: grid;
+  grid-template-columns: 1fr 1fr 2fr;
 }
 
 /* Testimonials settings styling */
