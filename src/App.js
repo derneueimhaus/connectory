@@ -5,7 +5,6 @@ import { Provider } from "react-redux";
 import store from "./redux/store";
 
 import NavBar from "./components/NavBar";
-// import Counter from "./components/Counter";
 
 import Settings from "./views/Settings";
 import Home from "./views/Home";
@@ -19,7 +18,6 @@ function App() {
       <Provider store={store}>
         <NavBar />
         <div className="App">
-          {/* <Counter /> */}
           <Switch>
             <Route exact path="/" component={Home} />
             <Route path="/settings" component={Settings} />
