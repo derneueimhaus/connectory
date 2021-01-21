@@ -17,7 +17,7 @@ export default class Filters extends Component {
     return (
       <div>
         <form>
-          <select mutliple required name="Professions">
+          <select mutliple name="Professions">
             <option value="" disabled selected>
               Select a profession...
             </option>
