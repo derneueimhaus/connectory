@@ -22,7 +22,7 @@ export class ProfileSettings extends Component {
     super(props);
     this.state = {
       image: testPhoto,
-      newImage: "",
+      newImage: testPhoto,
       editMode: false,
       scale: 1,
       profession: "testC",
@@ -114,7 +114,7 @@ export class ProfileSettings extends Component {
         <h4>Basic Info</h4>
         <div className="basic-info-form">
           <div className="input-label-pair">
-            <label for="input-name">Name</label>
+            <label htmlFor="input-name">Name</label>
             <input
               id="input-name"
               className="settings-input input-name"
@@ -123,7 +123,7 @@ export class ProfileSettings extends Component {
             />
           </div>
           <div className="input-label-pair">
-            <label for="input-description">Description</label>
+            <label htmlFor="input-description">Description</label>
             <input
               id="input-description"
               className="settings-input input-description"
@@ -132,7 +132,7 @@ export class ProfileSettings extends Component {
             />
           </div>
           <div className="input-label-pair">
-            <label for="input-profession">Profession Tag</label>
+            <label htmlFor="input-profession">Profession Tag</label>
             <select name="Professions">
               {professionsArray.map((profession, i) => (
                 <option
@@ -151,7 +151,7 @@ export class ProfileSettings extends Component {
         <div className="contact-form">
           <div>
             <div className="input-label-pair">
-              <label for="input-name">Location</label>
+              <label htmlFor="input-name">Location</label>
               <select name="Locations">
                 {locationsArray.map((location, i) => (
                   <option
@@ -165,7 +165,7 @@ export class ProfileSettings extends Component {
               </select>
             </div>
             <div className="input-label-pair">
-              <label for="input-name">Phone No.</label>
+              <label htmlFor="input-name">Phone No.</label>
               <input
                 id="input-location"
                 className="settings-input input-location"
@@ -176,7 +176,7 @@ export class ProfileSettings extends Component {
           </div>
           <div>
             <div className="input-label-pair">
-              <label for="input-email">Email</label>
+              <label htmlFor="input-email">Email</label>
               <input
                 id="input-email"
                 className="settings-input input-email"
@@ -185,7 +185,7 @@ export class ProfileSettings extends Component {
               />
             </div>
             <div className="input-label-pair">
-              <label for="input-wesbite">Website</label>
+              <label htmlFor="input-wesbite">Website</label>
               <input
                 id="input-website"
                 className="settings-input input-website"

@@ -10,6 +10,7 @@ const testimonialsData = {
   testimonials: [
     {
       testimonialId: 111,
+      show: true,
       authorMember: true,
       authorPro: true,
       authorUserId: 7,
@@ -21,6 +22,7 @@ const testimonialsData = {
     },
     {
       testimonialId: 222,
+      show: true,
       authorMember: false,
       authorPro: false,
       authorUserId: null,
@@ -42,30 +44,35 @@ export default class Testimonials extends Component {
           <button>Write a testimonial</button>
         </div>
         <div className="testimonials-body">
-          {testimonialsData.testimonials.map((obj) => (
-            <div className="single-testimonial" key={obj.testimonialId}>
-              <div className="photo-badge">
-                <img
-                  className="testimonial-img"
-                  src={obj.authorMember ? chrisPhoto : testPhoto}
-                  alt={obj.authorName}
-                />
-                {obj.authorPro && (
-                  <span className="testimonial-badge">Pro</span>
-                )}
-              </div>
-              <div className="testimonial-text">
-                <p>
-                  <em>"{obj.text}"</em>
-                </p>
-                <p>
-                  <strong>
-                    {obj.authorName} - {obj.authorTitle} at {obj.authorCompany}
-                  </strong>
-                </p>
-              </div>
-            </div>
-          ))}
+          {testimonialsData.testimonials.map((obj) => {
+            if (obj.show === true) {
+              return (
+                <div className="single-testimonial" key={obj.testimonialId}>
+                  <div className="photo-badge">
+                    <img
+                      className="testimonial-img"
+                      src={obj.authorMember ? chrisPhoto : testPhoto}
+                      alt={obj.authorName}
+                    />
+                    {obj.authorPro && (
+                      <span className="testimonial-badge">Pro</span>
+                    )}
+                  </div>
+                  <div className="testimonial-text">
+                    <p>
+                      <em>"{obj.text}"</em>
+                    </p>
+                    <p>
+                      <strong>
+                        {obj.authorName} - {obj.authorTitle} at{" "}
+                        {obj.authorCompany}
+                      </strong>
+                    </p>
+                  </div>
+                </div>
+              );
+            } else return null;
+          })}
         </div>
       </div>
     );

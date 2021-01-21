@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
 import { ProfileSettings } from "./ProfileSettings";
+import TestimonialsSettingsList from "./TestimonialsSettingsList";
 
 export default function AccountTabs() {
   const [projects, setProjects] = useState(false);
@@ -24,6 +25,7 @@ export default function AccountTabs() {
       </TabPanel>
       <TabPanel>
         <h2>This is the testimonials settings page</h2>
+        <TestimonialsSettingsList />
       </TabPanel>
       <TabPanel>
         <h2>This is the projects settings page</h2>

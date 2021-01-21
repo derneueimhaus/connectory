@@ -1,3 +1,4 @@
+/* General styling -- all tabs */
 .settings-image {
   display: flex;
 }
@@ -8,6 +9,14 @@
   border-radius: 50%;
 }
 
+.input-label-pair {
+  display: flex;
+  flex-direction: column;
+  margin: 5px;
+  width: 90%;
+}
+
+/* Profile settings styling */
 .basic-info-form {
   display: flex;
   flex-direction: column;
@@ -19,21 +28,20 @@
   flex-wrap: wrap;
 }
 
-.contact-form div {
-  flex: 2;
-}
-
-.input-label-pair {
-  display: flex;
-  flex-direction: column;
-  margin: 5px;
-  width: 90%;
-}
-
 .input-description {
   height: 4em;
   word-wrap: break-word;
 }
 
-.input-description[type="text"] {
+.contact-form div {
+  flex: 2;
+}
+
+/* Testimonials settings styling */
+.settings-testimonial-controls {
+  display: flex;
+}
+
+.settings-testimonial-info {
+  flex: 2;
 }
