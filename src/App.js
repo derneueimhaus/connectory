@@ -7,7 +7,7 @@ import store from "./redux/store";
 import NavBar from "./components/NavBar";
 // import Counter from "./components/Counter";
 
-import Account from "./views/Account";
+import Settings from "./views/Settings";
 import Home from "./views/Home";
 import Profile from "./views/Profile";
 
@@ -22,7 +22,7 @@ function App() {
           {/* <Counter /> */}
           <Switch>
             <Route exact path="/" component={Home} />
-            <Route path="/account" component={Account} />
+            <Route path="/settings" component={Settings} />
             <Route path="/profile/:userId" component={Profile} />
           </Switch>
         </div>

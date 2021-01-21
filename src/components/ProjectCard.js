@@ -24,9 +24,11 @@ class ProjectCard extends Component {
         style={{ backgroundImage: `url(${this.props.data.photo})` }}
         onClick={() => this.toggleModal(!this.props.modal.show)}
       >
-        <h4>{this.props.data.headline}</h4>
-        <h5>{this.props.data.subheader}</h5>
-        {this.props.modal.show && <ProjectModal />}
+        <div className="text-box">
+          <h4>{this.props.data.headline}</h4>
+          <h5>{this.props.data.subheader}</h5>
+          {this.props.modal.show && <ProjectModal />}
+        </div>
       </div>
     );
   }

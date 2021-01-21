@@ -11,11 +11,11 @@ function NavBar() {
         <h3>Connectory</h3>
       </Link>
       <div className="buttons-container">
-        <Link>
+        <Link to="/account">
           <button>Settings</button>
         </Link>
-        <Link to="/account">
-          <button>Account</button>
+        <Link to="/profile/1">
+          <button>My Profile</button>
         </Link>
       </div>
     </div>

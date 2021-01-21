@@ -8,8 +8,8 @@ import "../styles/ProjectModal.css";
 function ProjectModal(props) {
   return (
     <div className="modal">
-      This is a modal
-      <p>{props.modal.data.projectId}</p>
+      <h3>{props.modal.data.headline}</h3>
+      <p>{props.modal.data.description}</p>
     </div>
   );
 }
