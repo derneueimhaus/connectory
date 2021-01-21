@@ -11,7 +11,7 @@ function NavBar() {
         <h3>Connectory</h3>
       </Link>
       <div className="buttons-container">
-        <Link to="/account">
+        <Link to="/settings">
           <button>Settings</button>
         </Link>
         <Link to="/profile/1">

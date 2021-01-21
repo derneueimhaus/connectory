@@ -1,4 +1,8 @@
-img {
+.settings-image {
+  display: flex;
+}
+
+.settings-profile-img {
   height: 200px;
   width: 200px;
   border-radius: 50%;
@@ -10,6 +14,15 @@ img {
   align-items: center;
 }
 
+.contact-form {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.contact-form div {
+  flex: 2;
+}
+
 .input-label-pair {
   display: flex;
   flex-direction: column;
@@ -17,6 +30,10 @@ img {
   width: 90%;
 }
 
-.settings-input {
-  color: grey;
+.input-description {
+  height: 4em;
+  word-wrap: break-word;
+}
+
+.input-description[type="text"] {
 }
