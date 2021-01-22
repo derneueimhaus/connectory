@@ -30,6 +30,8 @@ export default function ExperienceInput({ data, index }) {
             id={`${index}_input-start-year`}
             className="settings-input input-start-year"
             type="number"
+            max="2100"
+            min="1900"
             defaultValue={data.yearStart}
           />
         </div>
@@ -39,6 +41,8 @@ export default function ExperienceInput({ data, index }) {
             id={`${index}_input-end-year`}
             className="settings-input input-end-year"
             type="number"
+            max="2100"
+            min="1900"
             defaultValue={data.yearEnd}
           />
         </div>

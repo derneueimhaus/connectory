@@ -56,3 +56,9 @@ input[type="number"]::-webkit-outer-spin-button {
 .settings-testimonial-info {
   flex: 2;
 }
+
+/* Projects setting styling */
+.settings-project-img {
+  height: 200px;
+  width: 400px;
+}
