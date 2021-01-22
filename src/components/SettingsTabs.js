@@ -1,13 +1,16 @@
 import React, { useState } from "react";
 
+import { connect } from "react-redux";
+import { toggleAddMode } from "../redux/actions/projectActions";
+
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
 
 import { ProfileSettings } from "./ProfileSettings";
-import { ProjectsSettingsList } from "./ProjectsSettingsList";
+import ProjectsSettingsList from "./ProjectsSettingsList";
 import TestimonialsSettingsList from "./TestimonialsSettingsList";
 
-export default function SettingsTabs() {
+function SettingsTabs(props) {
   const [projects, setProjects] = useState(false);
 
   return (
@@ -19,7 +22,11 @@ export default function SettingsTabs() {
         <Tab onClick={() => setProjects(false)}>Account</Tab>
       </TabList>
       <button>Save Changes</button>
-      {projects && <button>Add Project</button>}
+      {projects && (
+        <button onClick={() => props.toggleAddMode(!props.addProject.show)}>
+          Add Project
+        </button>
+      )}
 
       <TabPanel>
         <h2>This is the profile settings page</h2>
@@ -39,3 +46,11 @@ export default function SettingsTabs() {
     </Tabs>
   );
 }
+
+const mapStateToProps = (state) => ({
+  addProject: state.addProject,
+});
+
+const mapActionsToProps = { toggleAddMode };
+
+export default connect(mapStateToProps, mapActionsToProps)(SettingsTabs);

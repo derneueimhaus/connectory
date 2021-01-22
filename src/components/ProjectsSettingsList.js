@@ -1,5 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import { connect } from "react-redux";
+
+import ProjectInput from "./ProjectInput";
 import ProjectsSettingsUnit from "./ProjectsSettingsUnit";
 
 import wingPhoto from "../assets/wing.jpg";
@@ -23,19 +25,24 @@ const projectsData = [
   },
 ];
 
-export const ProjectsSettingsList = (props) => {
+function ProjectsSettingsList(props) {
   return (
     <div>
-      <h4>Project 1</h4>
-      <ProjectsSettingsUnit data={projectsData[0]} index={0} />
-      <hr style={{ border: "solid 1px purple" }} />
-      <h4>Project 2</h4>
-      <ProjectsSettingsUnit data={projectsData[1]} index={1} />
+      {props.addProject.show && <ProjectInput />}
+      {projectsData.map((project, i) => (
+        <ProjectsSettingsUnit
+          data={project}
+          index={i}
+          key={project.projectId}
+        />
+      ))}
     </div>
   );
-};
+}
 
-const mapStateToProps = (state) => ({});
+const mapStateToProps = (state) => ({
+  addProject: state.addProject,
+});
 
 const mapActionsToProps = {};
 

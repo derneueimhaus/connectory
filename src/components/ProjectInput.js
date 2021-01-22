@@ -1,14 +1,14 @@
 import React, { Component } from "react";
 
-import ProjectInput from "./ProjectInput";
 import ImageEditor from "./ImageEditor";
 
-export default class ProjectsSettingsUnit extends Component {
+import logo from "../assets/logo.jpg";
+
+export default class ProjectInput extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      image: this.props.data.photo,
-      editMode: false,
+      image: logo,
     };
   }
 
@@ -25,17 +25,16 @@ export default class ProjectsSettingsUnit extends Component {
   };
 
   render() {
-    const { index, data } = this.props;
+    const { index } = this.props;
     return (
       <div>
-        <h4>Project {index + 1}</h4>
+        <h4>Project {index ? index + 1 : "Creation Panel"}</h4>
         <div className="input-label-pair">
           <label htmlFor={`${index}_input-project-headline`}>Headline</label>
           <input
             id={`${index}_input-project-headline`}
             className="settings-input input-project-headline"
             type="text"
-            defaultValue={data.headline}
           />
         </div>
         <div className="input-label-pair">
@@ -46,7 +45,6 @@ export default class ProjectsSettingsUnit extends Component {
             id={`${index}_input-project-subheading`}
             className="settings-input input-project-subheading"
             type="text"
-            defaultValue={data.subheader}
           />
         </div>
         <div className="input-label-pair">
@@ -57,7 +55,6 @@ export default class ProjectsSettingsUnit extends Component {
             id={`${index}_input-project-description`}
             className="settings-input input-description"
             type="text"
-            defaultValue={data.description}
           />
         </div>
         <div className="settings-image">
@@ -71,13 +68,7 @@ export default class ProjectsSettingsUnit extends Component {
               Edit
             </button>
             <button>Delete</button>
-            <input
-              id="show"
-              type="checkbox"
-              name={index}
-              defaultChecked={data.show}
-              onChange={this.handleCheck}
-            />
+            <input id="show" type="checkbox" onChange={this.handleCheck} />
             <label htmlFor="show">Show on profile</label>
             <p>
               For best results, images should be in a square format, ideally
@@ -85,15 +76,13 @@ export default class ProjectsSettingsUnit extends Component {
             </p>
           </div>
         </div>
-        {this.state.editMode && (
-          <ImageEditor
-            handleSave={this.handleChildImageSave}
-            height={200}
-            width={400}
-            borderRadius={20}
-            photo={this.state.image}
-          />
-        )}
+        <ImageEditor
+          handleSave={this.handleChildImageSave}
+          height={200}
+          width={400}
+          borderRadius={20}
+          photo={this.state.image}
+        />
         <hr style={{ border: "solid 1px purple" }} />
       </div>
     );
