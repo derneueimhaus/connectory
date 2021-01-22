@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import React from "react";
 import { connect } from "react-redux";
 
-import ProjectInput from "./ProjectInput";
+import AddProject from "./AddProject";
 import ProjectsSettingsUnit from "./ProjectsSettingsUnit";
 
 import wingPhoto from "../assets/wing.jpg";
@@ -28,7 +28,7 @@ const projectsData = [
 function ProjectsSettingsList(props) {
   return (
     <div>
-      {props.addProject.show && <ProjectInput />}
+      {props.addProject.show && <AddProject />}
       {projectsData.map((project, i) => (
         <ProjectsSettingsUnit
           data={project}

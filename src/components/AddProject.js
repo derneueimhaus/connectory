@@ -4,7 +4,7 @@ import ImageEditor from "./ImageEditor";
 
 import logo from "../assets/logo.jpg";
 
-export default class ProjectInput extends Component {
+export default class AddProject extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -28,7 +28,7 @@ export default class ProjectInput extends Component {
     const { index } = this.props;
     return (
       <div>
-        <h4>Project {index ? index + 1 : "Creation Panel"}</h4>
+        <h4>Project {index ? index + 1 : "Creator"}</h4>
         <div className="input-label-pair">
           <label htmlFor={`${index}_input-project-headline`}>Headline</label>
           <input

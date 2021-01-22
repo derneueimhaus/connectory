@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 
-import ProjectInput from "./ProjectInput";
 import ImageEditor from "./ImageEditor";
 
 export default class ProjectsSettingsUnit extends Component {
@@ -68,7 +67,7 @@ export default class ProjectsSettingsUnit extends Component {
           />
           <div className="image-controls">
             <button onClick={() => this.toggleEditMode(!this.state.editMode)}>
-              Edit
+              {this.state.editMode ? "Hide" : "Edit"}
             </button>
             <button>Delete</button>
             <input

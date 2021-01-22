@@ -24,7 +24,7 @@ function SettingsTabs(props) {
       <button>Save Changes</button>
       {projects && (
         <button onClick={() => props.toggleAddMode(!props.addProject.show)}>
-          Add Project
+          {props.addProject.show ? "Hide Project Creator" : "Add Project"}
         </button>
       )}
 
