@@ -9,7 +9,7 @@ import {
   addSignupConfirm,
 } from "../redux/actions/signupActions";
 
-export class SignUpOne extends Component {
+class SignUpOne extends Component {
   render() {
     return (
       <div className="signup-one-container">
