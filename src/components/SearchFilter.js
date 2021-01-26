@@ -49,7 +49,6 @@ class SearchFilter extends Component {
 }
 
 const mapStateToProps = (state) => {
-  console.log(state);
   return {
     search: state.search,
   };

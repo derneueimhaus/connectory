@@ -151,7 +151,7 @@ export class ProfileSettings extends Component {
               <input
                 id="input-location"
                 className="settings-input input-location"
-                type="text"
+                type="number"
                 defaultValue="Amsterdam"
               />
             </div>
@@ -162,7 +162,7 @@ export class ProfileSettings extends Component {
               <input
                 id="input-email"
                 className="settings-input input-email"
-                type="text"
+                type="email"
                 defaultValue="test@test.com"
               />
             </div>

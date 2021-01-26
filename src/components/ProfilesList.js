@@ -51,9 +51,9 @@ const testProfObj = [
   {
     name: "example exampleson",
     profession: "horses",
-    email: "test@test.com",
+    email: null,
     telephone: "012345678",
-    website: "test.com",
+    website: null,
     pro: false,
     photo: testPhoto,
     userId: 5,
@@ -63,7 +63,7 @@ const testProfObj = [
     profession: "real estate",
     email: "test@test.com",
     telephone: "012345678",
-    website: "test.com",
+    website: null,
     pro: true,
     photo: testPhoto,
     userId: 6,
@@ -84,6 +84,8 @@ export default class ProfilesList extends Component {
               name={element.name}
               profession={element.profession}
               email={element.email}
+              telephone={element.telephone}
+              website={element.website}
               photo={element.photo}
             />
           </Link>

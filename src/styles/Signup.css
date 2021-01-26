@@ -1,0 +1,39 @@
+.signup-page-container {
+  background: url(../assets/back-blauw.png) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.signup-one-container {
+  /* background-repeat: no-repeat; */
+  /* background-position: center; */
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  height: auto;
+  min-width: 100%;
+}
+
+.signup-page-header {
+  color: white;
+  text-shadow: 2px 2px #aaa;
+}
+
+.signup-form-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.signup-form {
+  height: 90%;
+  width: 90%;
+  background-color: white;
+  border-radius: 10px;
+}
+
+.signup-form form {
+  display: flex;
+  flex-direction: column;
+}

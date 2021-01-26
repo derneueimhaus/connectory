@@ -34,6 +34,7 @@ export default class ProjectsSettingsUnit extends Component {
             id={`${index}_input-project-headline`}
             className="settings-input input-project-headline"
             type="text"
+            maxLength={75}
             defaultValue={data.headline}
           />
         </div>
@@ -45,6 +46,7 @@ export default class ProjectsSettingsUnit extends Component {
             id={`${index}_input-project-subheading`}
             className="settings-input input-project-subheading"
             type="text"
+            maxLength={75}
             defaultValue={data.subheader}
           />
         </div>
@@ -56,6 +58,7 @@ export default class ProjectsSettingsUnit extends Component {
             id={`${index}_input-project-description`}
             className="settings-input input-description"
             type="text"
+            maxLength={450}
             defaultValue={data.description}
           />
         </div>

@@ -9,6 +9,7 @@ import NavBar from "./components/NavBar";
 import Settings from "./views/Settings";
 import Home from "./views/Home";
 import Profile from "./views/Profile";
+import Signup from "./views/Signup";
 
 import "./styles/App.css";
 
@@ -20,6 +21,7 @@ function App() {
         <div className="App">
           <Switch>
             <Route exact path="/" component={Home} />
+            <Route path="/signup" component={Signup} />
             <Route path="/settings" component={Settings} />
             <Route path="/profile/:userId" component={Profile} />
           </Switch>
