@@ -1,29 +1,45 @@
-import React from "react";
+import React, { Component } from "react";
+
 import { connect } from "react-redux";
+import { toggleFilterOption } from "../redux/actions/filterActions";
 
-const handleSelection = (event) => {
-  console.log(event.target.value);
-};
+class Checkboxes extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {};
+  }
 
-const Checkboxes = ({ title, options }) => (
-  <div>
-    <p>{title}</p>
-    {options.map((option) => (
-      <span>
-        <label>{option}</label>
-        <input
-          type="checkbox"
-          name={option}
-          value={option}
-          onClick={handleSelection}
-        />
-      </span>
-    ))}
-  </div>
-);
+  handleSelection = (event) => {
+    console.log(event);
+    this.props.toggleFilterOption(true);
+  };
 
-const mapStateToProps = (state) => ({});
+  render() {
+    const { title, options } = this.props;
+    return (
+      <div>
+        <p>{title}</p>
+        {options.map((option) => (
+          <span key={option.key}>
+            <label>{option.option}</label>
+            <input
+              id={option.key}
+              type="checkbox"
+              name={option.option}
+              value={option.option}
+              onClick={this.handleSelection}
+            />
+          </span>
+        ))}
+      </div>
+    );
+  }
+}
 
-const mapActionsToProps = {};
+const mapStateToProps = (state) => ({
+  filter: state.filter,
+});
+
+const mapActionsToProps = { toggleFilterOption };
 
 export default connect(mapStateToProps, mapActionsToProps)(Checkboxes);

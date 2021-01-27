@@ -4,6 +4,17 @@ import { Link } from "react-router-dom";
 import ProfilesList from "../components/ProfilesList";
 import SearchFilter from "../components/SearchFilter";
 
+const professionsArray = [
+  "testA",
+  "testB",
+  "testC",
+  "testD",
+  "testA",
+  "testB",
+  "testC",
+  "testD",
+];
+
 export default function Home() {
   return (
     <div>
@@ -13,7 +24,7 @@ export default function Home() {
           <button>Sign up</button>
         </Link>
       </div>
-      <SearchFilter />
+      <SearchFilter professions={professionsArray} />
       <ProfilesList />
     </div>
   );

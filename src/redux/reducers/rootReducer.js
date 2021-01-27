@@ -6,6 +6,7 @@ import projectReducer from "./projectReducer";
 import signupReducer from "./signupReducer";
 import profileSettingsReducer from "./profileSettingsReducer";
 import accountSettingsReducer from "./accountSettingsReducers";
+import filterReducer from "./filterReducer";
 
 const rootReducer = combineReducers({
   search: searchReducer,
@@ -14,6 +15,7 @@ const rootReducer = combineReducers({
   signup: signupReducer,
   profileSettings: profileSettingsReducer,
   accountSettings: accountSettingsReducer,
+  filter: filterReducer,
 });
 
 export default rootReducer;

@@ -42,7 +42,9 @@ class SearchFilter extends Component {
             Filters
           </button>
         </div>
-        {this.state.showFilters && <Filters />}
+        {this.state.showFilters && (
+          <Filters professions={this.props.professions} />
+        )}
       </div>
     );
   }
