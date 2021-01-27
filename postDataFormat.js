@@ -1,5 +1,13 @@
 // This is my current format for data I'll be sendin in POST reqs
 
+const POST_Signup = {
+  // if you want we could also hardcode some blank/null values to create the full empty profile template here on signup
+  email: "email@email.com", // check if exists in Change=
+  firstName: "Test",
+  lastName: "Testerson",
+  password: "password", // what do we want to do on the frontend here? hash it? check if it matches with "confirm password" field?
+};
+
 const POST_Filters = {
   // any of these fields could be empty
   search: "value",
@@ -14,4 +22,9 @@ const POST_Filters = {
     chzo: true,
     website: false,
   },
+};
+
+const POST_EditSettings = {
+  // I could send an entire object or a single value -- whatever works best for you
+  [setting]: [value],
 };
