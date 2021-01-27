@@ -1,0 +1,11 @@
+.App {
+  padding: 0 5%;
+}
+
+.home-page-header {
+  background-image: url(../assets/header-straight.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  height: 300px;
+}

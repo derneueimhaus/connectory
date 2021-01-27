@@ -1,0 +1,10 @@
+.projects-container {
+  display: flex;
+  justify-content: space-evenly;
+  background-image: url(../assets/back-blauw.png);
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  height: 100%;
+  width: 100%;
+}

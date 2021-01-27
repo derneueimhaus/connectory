@@ -1,0 +1,10 @@
+.profile-card {
+  height: 220px;
+  width: 200px;
+  margin: 50px;
+}
+
+.profile-card-img {
+  max-height: 80%;
+  max-width: 80%;
+}

@@ -1,0 +1,30 @@
+.testimonials-container {
+  background-color: #f3fbfa;
+}
+
+.testimonials-header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.single-testimonial {
+  display: flex;
+  max-height: 5rem;
+}
+
+.testimonial-img {
+  position: relative;
+  max-height: 5rem;
+  border-radius: 50%;
+}
+
+.testimonial-badge {
+  position: absolute;
+  display: inline-block;
+  z-index: 100;
+  color: purple;
+}
+
+.testimonial-text {
+  font-size: min(1.2vw, 13.5px);
+}
