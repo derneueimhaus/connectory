@@ -10,8 +10,11 @@ class Checkboxes extends Component {
   }
 
   handleSelection = (event) => {
-    console.log(event);
-    this.props.toggleFilterOption(true);
+    console.log(event.target.checked);
+    this.props.toggleFilterOption({
+      id: event.target.id,
+      checked: event.target.checked,
+    });
   };
 
   render() {
