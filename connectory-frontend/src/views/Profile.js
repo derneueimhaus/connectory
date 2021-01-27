@@ -11,7 +11,7 @@ import "../styles/Profile.css";
 
 const expData = [
   {
-    userId: 1,
+    expId: 123,
     featured: true,
     title: "Head of Marketing",
     company: "Coca-Cola",
@@ -21,7 +21,7 @@ const expData = [
       "Limitations and exclusions of liability: caveats to limits of liability; interpretation of limits of liability; no liability for force majeure; no liability for loss of profits; no liability for loss of revenue; no liability for loss of use; no liability for loss of opportunities; no liability for loss of data; no liability for consequential loss; per event liability cap upon services contract; aggregate liability cap upon services contract.",
   },
   {
-    userId: 1,
+    expId: 456,
     featured: true,
     title: "Senor Marketing Manager",
     company: "IBM",
@@ -35,7 +35,7 @@ const expData = [
 function Profile({ match, modal }) {
   return (
     <div /*className={modal.show ? "modal-overlay" : null}*/>
-      <h1>this is the profile for user ID: {match.params.userId}</h1>
+      {/* <h1>this is the profile for user ID: {match.params.userId}</h1> */}
       <InfoCard />
       <Testimonials />
       <Projects />

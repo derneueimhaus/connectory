@@ -143,6 +143,7 @@ const GET_PofileData_obj = {
   experience: [
     {
       // will probably want to store user ID and experience ID for cataloguing purposes, but this is all I'll need
+      expId: 123,
       featured: true,
       title: "Head of Marketing",
       company: "Coca-Cola",
@@ -152,6 +153,7 @@ const GET_PofileData_obj = {
         "Limitations and exclusions of liability: caveats to limits of liability; interpretation of limits of liability; no liability for force majeure; no liability for loss of profits; no liability for loss of revenue; no liability for loss of use; no liability for loss of opportunities; no liability for loss of data; no liability for consequential loss; per event liability cap upon services contract; aggregate liability cap upon services contract.",
     },
     {
+      expId: 456,
       featured: true,
       title: "Senor Marketing Manager",
       company: "IBM",

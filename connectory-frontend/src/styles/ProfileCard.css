@@ -8,3 +8,11 @@
   max-height: 80%;
   max-width: 80%;
 }
+
+.contact-icons-container {
+  max-height: 1em;
+}
+
+.contact-icon {
+  height: 1em;
+}

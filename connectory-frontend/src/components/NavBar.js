@@ -2,6 +2,10 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { withRouter } from "react-router";
 
+import { ReactComponent as Gear } from "../assets/gear.svg";
+import { ReactComponent as PinkPerson } from "../assets/pink_person.svg";
+import verloop from "../assets/verloop-01.png";
+
 import "../styles/NavBar.css";
 
 function NavBar() {
@@ -15,10 +19,10 @@ function NavBar() {
           <button>Log In</button>
         </Link>
         <Link to="/settings">
-          <button>Settings</button>
+          <Gear className="navbar-icon" />
         </Link>
         <Link to="/profile/1">
-          <button>My Profile</button>
+          <PinkPerson className="navbar-icon" />
         </Link>
       </div>
     </div>

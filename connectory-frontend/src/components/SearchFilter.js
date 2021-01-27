@@ -3,8 +3,11 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { addSearchTerm } from "../redux/actions/searchActions";
 
-import "../styles/SearchFilter.css";
 import Filters from "./Filters";
+import { ReactComponent as Filter } from "../assets/filters.svg";
+import { ReactComponent as Search } from "../assets/search.svg";
+
+import "../styles/SearchFilter.css";
 
 class SearchFilter extends Component {
   constructor(props) {
@@ -35,11 +38,15 @@ class SearchFilter extends Component {
                 placeholder="Know who you're looking for? Search for a name..."
                 onChange={this.handleInputChange}
               />
-              <button type="submit">Go</button>
+              <button type="submit">
+                Go
+                <Search />
+              </button>
             </form>
           </div>
           <button onClick={() => this.toggleFilters(!this.state.showFilters)}>
             Filters
+            <Filter />
           </button>
         </div>
         {this.state.showFilters && (

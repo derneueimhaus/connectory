@@ -5,7 +5,7 @@ export default function Experience({ data }) {
     <div>
       <h4>Experience</h4>
       {data.map((obj) => (
-        <div>
+        <div key={obj.expId}>
           <p>
             {obj.title} - {obj.company}
           </p>

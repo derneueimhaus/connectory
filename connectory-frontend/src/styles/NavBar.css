@@ -1,4 +1,15 @@
 .navbar {
   display: flex;
   justify-content: space-between;
+  background-image: url(../assets/background.png);
+  background-position: center bottom;
+  background-size: 100% 500%;
+}
+
+.buttons-container {
+  display: flex;
+}
+
+.navbar-icon {
+  width: 3em;
 }
