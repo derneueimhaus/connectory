@@ -5,37 +5,13 @@ import "../styles/Testimonials.css";
 import chrisPhoto from "../assets/chris.jpg";
 import testPhoto from "../assets/blank.png";
 
-const testimonialsData = {
-  userId: 1,
-  testimonials: [
-    {
-      testimonialId: 111,
-      show: true,
-      authorMember: true,
-      authorPro: true,
-      authorUserId: 7,
-      authorName: "John Smith",
-      authorTitle: "CEO",
-      authorCompany: "Pro-Evo Technologies",
-      text:
-        "Hit the thumbs up in agreement of these changes or comment any questions or objections to this post asap. I'd like to update Joan later this afternoon on whether we're pursue the pre-recorded or live option.",
-    },
-    {
-      testimonialId: 222,
-      show: true,
-      authorMember: false,
-      authorPro: false,
-      authorUserId: null,
-      authorName: "Chris Evans",
-      authorTitle: "Marketeer",
-      authorCompany: "IBM",
-      text:
-        "Hit the thumbs up in agreement of these changes or comment any questions or objections to this post asap. I'd like to update Joan later this afternoon on whether we're pursue the pre-recorded or live option.",
-    },
-  ],
-};
-
 export default class Testimonials extends Component {
+  componentDidMount = async () => {
+    const testApi = await fetch("http://localhost:8080/users").then((res) =>
+      res.json()
+    );
+    console.log(testApi);
+  };
   render() {
     return (
       <div className="testimonials-container">
@@ -44,7 +20,7 @@ export default class Testimonials extends Component {
           <button>Write a testimonial</button>
         </div>
         <div className="testimonials-body">
-          {testimonialsData.testimonials.map((obj) => {
+          {this.props.data.testimonials.map((obj) => {
             if (obj.show === true) {
               return (
                 <div className="single-testimonial" key={obj.testimonialId}>
