@@ -8,7 +8,7 @@ export default class InfoCard extends Component {
     this.state = {};
   }
   render() {
-    const { data } = this.props;
+    const { data, experienceData } = this.props;
     return (
       <div className="info-card-container">
         <div className="basic-info">
@@ -35,9 +35,11 @@ export default class InfoCard extends Component {
               <hr style={{ border: "solid 1px white" }} />
               <p>Featured Experience:</p>
               <h5>
-                {data.featured.title}, {data.featured.company}
+                {experienceData.title}, {experienceData.company}
               </h5>
-              <p>{data.featured.years}</p>
+              <p>
+                {experienceData.yearStart} - {experienceData.yearEnd}
+              </p>
             </div>
           </div>
         </div>

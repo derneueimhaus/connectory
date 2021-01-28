@@ -27,10 +27,11 @@ class SignUpTwo extends Component {
     this.state = {
       profession: "",
       location: "",
-      description:
-        "Give yourself a brief description that will appear at the top of your profile.",
+      description: "",
     };
   }
+
+  componentDidMount = () => {};
 
   handleDropdownChange = (e, key, cb) => {
     cb(e.target.value);
@@ -39,6 +40,29 @@ class SignUpTwo extends Component {
 
   handleCheckChange = (checked) => {
     this.props.editShare(checked);
+  };
+
+  handleSubmitInfo = async (e) => {
+    e.preventDefault();
+    // await fetch(`http://localhost:8080/profile/1`, {
+    //   method: "POST",
+    //   headers: {
+    //     "Content-Type": "application/json",
+    //     // "Access-Control-Allow-Origin": "*",
+    //   },
+    //   body: JSON.stringify({
+    //     userInfo: {
+    //       description: this.props.profileSettings.description,
+    //       location: this.props.profileSettings.location,
+    //       profession: this.props.profileSettings.profession,
+    //     },
+    //     testimonials: {},
+    //     projects: [],
+    //     experience: [],
+    //   }),
+    // })
+    //   .then((res) => res.json())
+    //   .catch((err) => console.log(err));
   };
 
   render() {
@@ -51,7 +75,7 @@ class SignUpTwo extends Component {
         </div>
         <div className="signup-form-container">
           <div className="signup-form">
-            <form>
+            <form onSubmit={this.handleSubmitInfo}>
               <select
                 name="Professions"
                 value={this.state.profession}
@@ -102,7 +126,7 @@ class SignUpTwo extends Component {
                 id="input-description"
                 className="settings-input input-description"
                 type="text"
-                defaultValue={this.state.description}
+                placeholder="Give yourself a brief description that will appear at the top of your profile."
                 onChange={(e) =>
                   this.handleDropdownChange(
                     e,
@@ -113,7 +137,7 @@ class SignUpTwo extends Component {
               />
               <div>
                 <button>Skip</button>
-                <button type="submit">Connect</button>
+                <input type="submit" value="Connect" />
               </div>
             </form>
           </div>

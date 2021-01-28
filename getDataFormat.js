@@ -84,11 +84,6 @@ const GET_PofileData_obj = {
     email: "test@test.com",
     telephone: "012345678",
     website: "test.com",
-    featured: {
-      title: "Head of Marketing",
-      years: "2017 - 2019",
-      company: "Coca-Cola",
-    },
     profession: "marketing",
     photo: "https://database.com/user-upoladed-photo",
   },

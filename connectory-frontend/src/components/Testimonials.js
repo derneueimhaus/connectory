@@ -14,7 +14,7 @@ export default class Testimonials extends Component {
           <button>Write a testimonial</button>
         </div>
         <div className="testimonials-body">
-          {this.props.data.testimonials.map((obj) => {
+          {this.props.data.map((obj) => {
             if (obj.show === true) {
               return (
                 <div className="single-testimonial" key={obj.testimonialId}>

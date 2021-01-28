@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 
 import { connect } from "react-redux";
-import Experience from "../components/Experience";
 
+import Experience from "../components/Experience";
 import InfoCard from "../components/InfoCard";
 import Projects from "../components/Projects";
 import Testimonials from "../components/Testimonials";
@@ -16,7 +16,9 @@ function Profile({ match, modal }) {
     async function fetchData() {
       const profileData = await fetch(
         `http://localhost:8080/profile/${match.params.userId}`
-      ).then((res) => res.json());
+      )
+        .then((res) => res.json())
+        .catch((err) => console.log(err));
       setProfileData(profileData);
     }
     fetchData();
@@ -24,7 +26,12 @@ function Profile({ match, modal }) {
 
   return (
     <div /*className={modal.show ? "modal-overlay" : null}*/>
-      {profileData && <InfoCard data={profileData.userInfo} />}
+      {profileData && (
+        <InfoCard
+          data={profileData.userInfo}
+          experienceData={profileData.experience[0]}
+        />
+      )}
       {profileData && <Testimonials data={profileData.testimonials} />}
       {profileData && <Projects data={profileData.projects} />}
       {profileData && <Experience data={profileData.experience} />}
