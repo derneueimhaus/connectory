@@ -6,12 +6,6 @@ import chrisPhoto from "../assets/chris.jpg";
 import testPhoto from "../assets/blank.png";
 
 export default class Testimonials extends Component {
-  componentDidMount = async () => {
-    const testApi = await fetch("http://localhost:8080/users").then((res) =>
-      res.json()
-    );
-    console.log(testApi);
-  };
   render() {
     return (
       <div className="testimonials-container">
