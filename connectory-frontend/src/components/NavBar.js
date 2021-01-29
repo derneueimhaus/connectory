@@ -2,13 +2,15 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { withRouter } from "react-router";
 
+import { connect } from "react-redux";
+
 import { ReactComponent as Gear } from "../assets/gear.svg";
 import { ReactComponent as PinkPerson } from "../assets/pink_person.svg";
 import verloop from "../assets/verloop-01.png";
 
 import "../styles/NavBar.css";
 
-function NavBar() {
+function NavBar({ login }) {
   return (
     <div className="navbar">
       <Link to="/">
@@ -18,10 +20,10 @@ function NavBar() {
         <Link to="/signup">
           <button>Log In</button>
         </Link>
-        <Link to="/settings">
+        <Link to={`/settings/${login.userId}`}>
           <Gear className="navbar-icon" />
         </Link>
-        <Link to="/profile/1">
+        <Link to={`/profile/${login.userId}`}>
           <PinkPerson className="navbar-icon" />
         </Link>
       </div>
@@ -29,4 +31,10 @@ function NavBar() {
   );
 }
 
-export default withRouter(NavBar);
+const mapStateToProps = (state) => ({
+  login: state.login,
+});
+
+const mapActionsToProps = {};
+
+export default withRouter(connect(mapStateToProps, mapActionsToProps)(NavBar));

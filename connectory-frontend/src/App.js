@@ -22,7 +22,7 @@ function App() {
           <Switch>
             <Route exact path="/" component={Home} />
             <Route path="/signup" component={Signup} />
-            <Route path="/settings" component={Settings} />
+            <Route path="/settings/:userId" component={Settings} />
             <Route path="/profile/:userId" component={Profile} />
           </Switch>
         </div>

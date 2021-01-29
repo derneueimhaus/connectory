@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import Cropper from "react-cropper";
 import "cropperjs/dist/cropper.css";
 
-export const CropperWidget = ({ userPhoto }) => {
+const CropperWidget = ({ userPhoto }) => {
   const [image, setImage] = useState(userPhoto);
   const [cropData, setCropData] = useState("");
   const [cropper, setCropper] = useState();
@@ -27,19 +27,19 @@ export const CropperWidget = ({ userPhoto }) => {
     if (cropData) {
       postImage(cropData);
     }
-  });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [cropData]);
 
   async function postImage() {
-    // await fetch(`http://localhost:8080/profilePhotos`, {
-    //   method: "POST",
-    //   headers: {
-    //     "Content-Type": "application/json",
-    //   },
-    //   body: JSON.stringify({
-    //     croppedPhoto: cropData,
-    //   }),
-    // });
-    console.log(cropData);
+    await fetch(`http://localhost:8080/profilePhotos`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        croppedPhoto: cropData,
+      }),
+    });
   }
 
   return (

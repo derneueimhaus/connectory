@@ -30,7 +30,7 @@ function SettingsTabs(props) {
 
       <TabPanel>
         <h2>This is the profile settings page</h2>
-        <ProfileSettings />
+        <ProfileSettings profileData={props.profileData} />
       </TabPanel>
       <TabPanel>
         <h2>This is the testimonials settings page</h2>
