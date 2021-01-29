@@ -7,7 +7,8 @@ import "../styles/Settings.css";
 import testPhoto from "../assets/blank.png";
 
 import ExperienceInput from "./ExperienceInput";
-import ImageEditor from "./ImageEditor";
+// import ImageEditor from "./ImageEditor";
+import CropperWidget from "./CropperWidget";
 
 const professionsArray = ["testA", "testB", "testC", "testD"];
 
@@ -84,13 +85,16 @@ export class ProfileSettings extends Component {
           </div>
         </div>
         {this.state.editMode && (
-          <ImageEditor
-            handleSave={this.handleChildImageSave}
-            height={200}
-            width={200}
-            borderRadius={150}
-            photo={this.state.image}
-          />
+          <div>
+            <CropperWidget userPhoto={testPhoto} />
+            {/* <ImageEditor
+              handleSave={this.handleChildImageSave}
+              height={200}
+              width={200}
+              borderRadius={150}
+              photo={this.state.image}
+            /> */}
+          </div>
         )}
         <hr style={{ border: "solid 1px purple" }} />
         <h4>Basic Info</h4>
