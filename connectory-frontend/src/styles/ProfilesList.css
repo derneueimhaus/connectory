@@ -6,3 +6,7 @@
 .profile-links {
   flex: 1 0 26%;
 }
+
+.pagination {
+  float: right;
+}
