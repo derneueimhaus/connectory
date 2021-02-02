@@ -4,8 +4,6 @@ import { connect } from "react-redux";
 
 import "../styles/Settings.css";
 
-import testPhoto from "../assets/blank.png";
-
 import ExperienceInput from "./ExperienceInput";
 // import ImageEditor from "./ImageEditor";
 import CropperWidget from "./CropperWidget";
@@ -14,7 +12,7 @@ export class ProfileSettings extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      image: testPhoto,
+      image: "",
       editMode: false,
       // scale: 1,
       professions: [],
@@ -85,7 +83,7 @@ export class ProfileSettings extends Component {
             </div>
             {this.state.editMode && (
               <div>
-                <CropperWidget userPhoto={testPhoto} />
+                <CropperWidget userPhoto={this.state.image} />
                 {/* <ImageEditor
               handleSave={this.handleChildImageSave}
               height={200}
@@ -175,7 +173,7 @@ export class ProfileSettings extends Component {
                     id="input-website"
                     className="settings-input input-website"
                     type="text"
-                    defaultValue={this.state.profileData.userInfo.email}
+                    defaultValue={this.state.profileData.userInfo.website}
                   />
                 </div>
               </div>
