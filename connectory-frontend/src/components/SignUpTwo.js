@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 
+import { withRouter } from "react-router";
+
 import { connect } from "react-redux";
 import {
   editProfession,
@@ -8,30 +10,38 @@ import {
 } from "../redux/actions/profileSettingsActions";
 import { editShare } from "../redux/actions/accountSettingsActions";
 
-import ImageEditor from "../components/ImageEditor";
+// import ImageEditor from "../components/ImageEditor";
+import CropperWidget from "../components/CropperWidget";
 
 import Switch from "react-switch";
 
-const professionsArray = ["testA", "testB", "testC", "testD"];
-
-const locationsArray = [
-  "Change= ZO",
-  "Change= NW",
-  "Change= PRO",
-  "Change= Alumni",
-];
+import testPhoto from "../assets/blank.png";
 
 class SignUpTwo extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      professions: [],
+      locations: [],
       profession: "",
       location: "",
       description: "",
     };
   }
 
-  componentDidMount = () => {};
+  componentDidMount = () => {
+    this.getSettingsData();
+  };
+
+  getSettingsData = async () => {
+    const settings = await fetch(`http://localhost:8080/settings/1`)
+      .then((res) => res.json())
+      .catch((err) => console.log(err));
+    this.setState({
+      professions: settings.professions,
+      locations: settings.locations,
+    });
+  };
 
   handleDropdownChange = (e, key, cb) => {
     cb(e.target.value);
@@ -63,6 +73,7 @@ class SignUpTwo extends Component {
     // })
     //   .then((res) => res.json())
     //   .catch((err) => console.log(err));
+    this.props.history.push("/");
   };
 
   render() {
@@ -71,7 +82,7 @@ class SignUpTwo extends Component {
         <div className="signup-page-header">
           <h1>Tell us about you.</h1>
           <h4>FIRST THINGS FIRST: SOME BASIC INFO</h4>
-          <ImageEditor />
+          <CropperWidget userPhoto={testPhoto} />
         </div>
         <div className="signup-form-container">
           <div className="signup-form">
@@ -88,7 +99,7 @@ class SignUpTwo extends Component {
                 }
               >
                 <option value="default">SELECT PROFESSION...</option>
-                {professionsArray.map((profession, i) => (
+                {this.state.professions.map((profession, i) => (
                   <option key={i} value={profession}>
                     {profession}
                   </option>
@@ -106,7 +117,7 @@ class SignUpTwo extends Component {
                 }
               >
                 <option value="default">SELECT LOCATION...</option>
-                {locationsArray.map((location, i) => (
+                {this.state.locations.map((location, i) => (
                   <option key={i} value={location}>
                     {location}
                   </option>
@@ -159,4 +170,6 @@ const mapActionsToProps = {
   editShare,
 };
 
-export default connect(mapStateToProps, mapActionsToProps)(SignUpTwo);
+export default withRouter(
+  connect(mapStateToProps, mapActionsToProps)(SignUpTwo)
+);

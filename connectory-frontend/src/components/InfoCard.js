@@ -12,9 +12,13 @@ export default class InfoCard extends Component {
     return (
       <div className="info-card-container">
         <div className="basic-info">
-          <img className="profile-img" src={data.photo} alt={data.name} />
-          <h4>{data.name}</h4>
-          <h5>{data.title}</h5>
+          <img
+            className="profile-img"
+            src={data.photo && data.photo}
+            alt={data.name && data.name}
+          />
+          <h4>{data.name && data.name}</h4>
+          <h5>{data.title && data.title}</h5>
         </div>
         <div className="details">
           <p>{data.description}</p>
@@ -33,13 +37,17 @@ export default class InfoCard extends Component {
             <div className="featured-exp">
               <p>{data.profession}</p>
               <hr style={{ border: "solid 1px white" }} />
-              <p>Featured Experience:</p>
-              <h5>
-                {experienceData.title}, {experienceData.company}
-              </h5>
-              <p>
-                {experienceData.yearStart} - {experienceData.yearEnd}
-              </p>
+              {experienceData && (
+                <div>
+                  <p>Featured Experience:</p>
+                  <h5>
+                    {experienceData.title}, {experienceData.company}
+                  </h5>
+                  <p>
+                    {experienceData.yearStart} - {experienceData.yearEnd}
+                  </p>
+                </div>
+              )}
             </div>
           </div>
         </div>
