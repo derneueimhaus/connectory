@@ -2,6 +2,7 @@ import {
   EDIT_PROFESSION,
   EDIT_LOCATION,
   EDIT_DESCRIPTION,
+  // EDIT_PROFILE_DATA_NAME,
 } from "../actions/profileSettingsActions";
 
 const profileSettingsReducer = (
@@ -15,6 +16,8 @@ const profileSettingsReducer = (
       return { ...state, profession: action.payload };
     case EDIT_DESCRIPTION:
       return { ...state, description: action.payload };
+    // case EDIT_PROFILE_DATA_NAME:
+    //   return { ...state, description: action.payload };
     default:
       return { ...state };
   }

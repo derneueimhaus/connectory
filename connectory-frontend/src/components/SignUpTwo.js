@@ -76,6 +76,10 @@ class SignUpTwo extends Component {
     this.props.history.push("/");
   };
 
+  handleSkip = () => {
+    this.props.history.push("/");
+  };
+
   render() {
     return (
       <div className="signup-one-container">
@@ -147,7 +151,7 @@ class SignUpTwo extends Component {
                 }
               />
               <div>
-                <button>Skip</button>
+                <button onClick={this.handleSkip}>Skip</button>
                 <input type="submit" value="Connect" />
               </div>
             </form>

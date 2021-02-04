@@ -27,7 +27,7 @@ class ProjectCard extends Component {
         <div className="text-box">
           <h4>{this.props.data.headline}</h4>
           <h5>{this.props.data.subheader}</h5>
-          {this.props.modal.show && <ProjectModal />}
+          {this.props.modal.show && <ProjectModal toggleModal={toggleModal} />}
         </div>
       </div>
     );

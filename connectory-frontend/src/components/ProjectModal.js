@@ -11,7 +11,9 @@ function ProjectModal(props) {
       <img src={props.modal.data.photo} alt={props.modal.data.headline} />
       <h3>{props.modal.data.headline}</h3>
       <p>{props.modal.data.description}</p>
-      <button className="sticky-btn">Close</button>
+      <button className="sticky-btn" onClick={() => props.toggleModal(false)}>
+        Close
+      </button>
     </div>
   );
 }

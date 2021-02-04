@@ -17,8 +17,7 @@ export class ProfileSettings extends Component {
       // scale: 1,
       professions: [],
       locations: [],
-      profession: "testC",
-      location: "Change= Alumni",
+      profileData: "",
     };
   }
 
@@ -55,6 +54,38 @@ export class ProfileSettings extends Component {
   handleChildImageSave = (file) => {
     this.setState({ image: file });
   };
+
+  handleSettingsChange = (event, section, field) => {
+    this.setState((prevState) => ({
+      profileData: {
+        ...prevState.profileData,
+        [section]: {
+          ...prevState.profileData[section],
+          [field]: event.target.value,
+        },
+      },
+    }));
+  };
+
+  // handleExperienceSettingsChange = (event, index, field) => {
+  //   const elementsIndex = this.state.profileData.experience.findIndex(
+  //     (element) => element.expId === index
+  //   );
+  //   let newArray = [this.state.profileData.experience];
+  //   // console.log(newArray[0][elementsIndex]);
+  //   // console.log("1");
+  //   newArray[0][elementsIndex] = {
+  //     ...newArray,
+  //     [field]: event.target.value,
+  //   };
+  //   this.setState((prevState) => ({
+  //     profileData: {
+  //       ...prevState.profileData,
+  //       experience: newArray,
+  //     },
+  //   }));
+  // };
+  // https://medium.com/javascript-in-plain-english/react-updating-a-value-in-state-array-7bae7c7eaef9
 
   render() {
     return (
@@ -96,14 +127,31 @@ export class ProfileSettings extends Component {
             <hr style={{ border: "solid 1px purple" }} />
             <h4>Basic Info</h4>
             <div className="basic-info-form">
-              <div className="input-label-pair">
-                <label htmlFor="input-name">Name</label>
-                <input
-                  id="input-name"
-                  className="settings-input input-name"
-                  type="text"
-                  defaultValue={this.state.profileData.userInfo.name}
-                />
+              <div>
+                <div className="input-label-pair">
+                  <label htmlFor="input-name">Name</label>
+                  <input
+                    id="input-name"
+                    className="settings-input input-name"
+                    type="text"
+                    defaultValue={this.state.profileData.userInfo.name}
+                    onChange={(e) =>
+                      this.handleSettingsChange(e, "userInfo", "name")
+                    }
+                  />
+                </div>
+                <div className="input-label-pair">
+                  <label htmlFor="input-title">Title</label>
+                  <input
+                    id="input-title"
+                    className="settings-input input-title"
+                    type="text"
+                    defaultValue={this.state.profileData.userInfo.title}
+                    onChange={(e) =>
+                      this.handleSettingsChange(e, "userInfo", "title")
+                    }
+                  />
+                </div>
               </div>
               <div className="input-label-pair">
                 <label htmlFor="input-description">Description</label>
@@ -112,16 +160,27 @@ export class ProfileSettings extends Component {
                   className="settings-input input-description"
                   type="text"
                   defaultValue={this.state.profileData.userInfo.description}
+                  onChange={(e) =>
+                    this.handleSettingsChange(e, "userInfo", "description")
+                  }
                 />
               </div>
               <div className="input-label-pair">
                 <label htmlFor="input-profession">Profession Tag</label>
-                <select name="Professions">
+                <select
+                  name="Professions"
+                  onChange={(e) =>
+                    this.handleSettingsChange(e, "userInfo", "profession")
+                  }
+                >
                   {this.state.professions.map((profession, i) => (
                     <option
                       key={i}
                       value={profession}
-                      selected={profession === this.state.profession}
+                      selected={
+                        profession ===
+                        this.state.profileData.userInfo.profession
+                      }
                     >
                       {profession}
                     </option>
@@ -135,12 +194,19 @@ export class ProfileSettings extends Component {
               <div>
                 <div className="input-label-pair">
                   <label htmlFor="input-name">Location</label>
-                  <select name="Locations">
+                  <select
+                    name="Locations"
+                    onChange={(e) =>
+                      this.handleSettingsChange(e, "userInfo", "location")
+                    }
+                  >
                     {this.state.locations.map((location, i) => (
                       <option
                         key={i}
                         value={location}
-                        selected={location === this.state.location}
+                        selected={
+                          location === this.state.profileData.userInfo.location
+                        }
                       >
                         {location}
                       </option>
@@ -154,6 +220,9 @@ export class ProfileSettings extends Component {
                     className="settings-input input-telephone"
                     type="number"
                     defaultValue={this.state.profileData.userInfo.telephone}
+                    onChange={(e) =>
+                      this.handleSettingsChange(e, "userInfo", "telephone")
+                    }
                   />
                 </div>
               </div>
@@ -165,6 +234,9 @@ export class ProfileSettings extends Component {
                     className="settings-input input-email"
                     type="email"
                     defaultValue={this.state.profileData.userInfo.email}
+                    onChange={(e) =>
+                      this.handleSettingsChange(e, "userInfo", "email")
+                    }
                   />
                 </div>
                 <div className="input-label-pair">
@@ -174,6 +246,9 @@ export class ProfileSettings extends Component {
                     className="settings-input input-website"
                     type="text"
                     defaultValue={this.state.profileData.userInfo.website}
+                    onChange={(e) =>
+                      this.handleSettingsChange(e, "userInfo", "website")
+                    }
                   />
                 </div>
               </div>
@@ -184,12 +259,13 @@ export class ProfileSettings extends Component {
             <p>Experience 1 is set as your featured experience by default.</p>
             <ExperienceInput
               data={this.state.profileData.experience[0]}
-              index={1}
+              index={0}
+              handleSettingsChange={this.handleExperienceSettingsChange}
             />
             <h5>Experience 2</h5>
             <ExperienceInput
               data={this.state.profileData.experience[1]}
-              index={2}
+              index={1}
             />
           </div>
         ) : (

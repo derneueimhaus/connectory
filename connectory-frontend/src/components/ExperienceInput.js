@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function ExperienceInput({ data, index }) {
+export default function ExperienceInput({ data, index, handleSettingsChange }) {
   return (
     <div className="experience-form">
       <div>
@@ -10,7 +10,8 @@ export default function ExperienceInput({ data, index }) {
             id={`${index}_input-title`}
             className="settings-input input-title"
             type="text"
-            defaultValue={data.title}
+            // defaultValue={data.title}
+            onChange={(e) => handleSettingsChange(e, data.expId, "title")}
           />
         </div>
         <div className="input-label-pair">
@@ -19,7 +20,7 @@ export default function ExperienceInput({ data, index }) {
             id={`${index}_input-company`}
             className="settings-input input-company"
             type="text"
-            defaultValue={data.company}
+            // defaultValue={data.company}
           />
         </div>
       </div>
@@ -32,7 +33,7 @@ export default function ExperienceInput({ data, index }) {
             type="number"
             max="2100"
             min="1900"
-            defaultValue={data.yearStart}
+            // defaultValue={data.yearStart}
           />
         </div>
         <div className="input-label-pair">
@@ -43,7 +44,7 @@ export default function ExperienceInput({ data, index }) {
             type="number"
             max="2100"
             min="1900"
-            defaultValue={data.yearEnd}
+            // defaultValue={data.yearEnd}
           />
         </div>
       </div>
@@ -53,7 +54,7 @@ export default function ExperienceInput({ data, index }) {
           id={`${index}_input-exp-desc`}
           className="settings-input input-description"
           type="text"
-          defaultValue={data.description}
+          // defaultValue={data.description}
         />
       </div>
     </div>
