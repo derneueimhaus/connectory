@@ -44,8 +44,11 @@ class SearchFilter extends Component {
               </button>
             </form>
           </div>
-          <button onClick={() => this.toggleFilters(!this.state.showFilters)}>
-            Filters
+          <button
+            className="button filters-toggle"
+            onClick={() => this.toggleFilters(!this.state.showFilters)}
+          >
+            <p>Filters</p>
             <Filter />
           </button>
         </div>

@@ -1,6 +1,6 @@
 import { EDIT_LOGGED_IN_STATUS } from "../actions/loginActions";
 
-const searchReducer = (state = { email: "", userId: "" }, action) => {
+const searchReducer = (state = { email: "", userId: 1 }, action) => {
   switch (action.type) {
     case EDIT_LOGGED_IN_STATUS:
       return {

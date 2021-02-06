@@ -5,6 +5,15 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+button,
+input,
+option,
+select {
+  font-family: "Montserrat", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
 /* * {
   border: 1px dashed black;
 } */

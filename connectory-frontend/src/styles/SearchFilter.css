@@ -2,3 +2,10 @@
   display: flex;
   justify-content: space-between;
 }
+
+.filters-toggle {
+  display: flex;
+  border: 2px solid var(--border-grey) !important;
+  background-color: white !important;
+  color: var(--border-grey) !important;
+}

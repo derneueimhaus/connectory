@@ -19,13 +19,17 @@ export default function Home() {
   return (
     <div>
       <div className="home-page-header">
-        <h4>Join the Change= network and connect with collaborators</h4>
-        <Link to="/signup">
-          <button>Sign up</button>
+        <p className="home-page-title">
+          Join the Change= network and connect with collaborators
+        </p>
+        <Link className="sign-up-button-a" to="/signup">
+          <button className="button sign-up-button">SIGN UP</button>
         </Link>
       </div>
-      <SearchFilter professions={professionsArray} />
-      <ProfilesList />
+      <div className="apply-padding">
+        <SearchFilter professions={professionsArray} />
+        <ProfilesList />
+      </div>
     </div>
   );
 }

@@ -4,28 +4,34 @@ import { withRouter } from "react-router";
 
 import { connect } from "react-redux";
 
-import { ReactComponent as Gear } from "../assets/gear.svg";
-import { ReactComponent as PinkPerson } from "../assets/pink_person.svg";
+import gear from "../assets/gear.png";
+import personIcon from "../assets/person-icon.png";
 import verloop from "../assets/verloop-01.png";
 
 import "../styles/NavBar.css";
 
 function NavBar({ login }) {
   return (
-    <div className="navbar">
-      <Link to="/">
-        <h3>Connectory</h3>
-      </Link>
-      <div className="buttons-container">
-        <Link to="/signup">
-          <button>Log In</button>
+    <div>
+      <div className="navbar">
+        <div className="container-helper"></div>
+        <Link to="/" className="navbar-header">
+          <div>CONNECTORY</div>
         </Link>
-        <Link to={`/settings/${login.userId}`}>
-          <Gear className="navbar-icon" />
-        </Link>
-        <Link to={`/profile/${login.userId}`}>
-          <PinkPerson className="navbar-icon" />
-        </Link>
+        <div className="buttons-container">
+          <Link to="/signup">
+            <button className="button log-in-button">LOG IN</button>
+          </Link>
+          <Link to={`/settings/${login.userId}`}>
+            <img src={gear} alt="Settings" className="navbar-icon" />
+          </Link>
+          <Link to={`/profile/${login.userId}`}>
+            <img src={personIcon} alt="Profile" className="navbar-icon" />
+          </Link>
+        </div>
+      </div>
+      <div className="verloop-container">
+        <img className="verloop" src={verloop} alt="verloop" />
       </div>
     </div>
   );
