@@ -2,18 +2,22 @@ import React from "react";
 
 import "../styles/Settings.css";
 
-const handleCheck = (event) => {
-  console.log(event.target.name);
-};
+export default function TestimonialsSettingsUnit({
+  data,
+  index,
+  handleCheckboxChange,
+}) {
+  const handleCheck = (event) => {
+    handleCheckboxChange(event.target.checked, data.testimonialId);
+  };
 
-export default function TestimonialsSettingsUnit({ data, index }) {
   return (
     <div className="settings-testimonials-container">
-      <h4>Testimonial {index}</h4>
+      <h4>Testimonial {index + 1}</h4>
       <div className="settings-testimonial-controls">
         <img
           className="settings-profile-img"
-          src={data.authorImage}
+          src={data.authorPhoto}
           alt="User"
         />
         <div className="settings-testimonial-info">
@@ -36,7 +40,7 @@ export default function TestimonialsSettingsUnit({ data, index }) {
           <input
             id="show"
             type="checkbox"
-            name={index}
+            name={`testimonial-${index + 1}`}
             defaultChecked={data.show}
             onChange={handleCheck}
           />

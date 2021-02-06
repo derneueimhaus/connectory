@@ -159,6 +159,28 @@
           "authorTitle": "Marketeer",
           "authorCompany": "IBM",
           "text": "Hit the thumbs up in agreement of these changes or comment any questions or objections to this post asap. I'd like to update Joan later this afternoon on whether we're pursue the pre-recorded or live option."
+        },
+        {
+          "testimonialId": 333,
+          "show": false,
+          "authorMember": false,
+          "authorPro": false,
+          "authorUserId": null,
+          "authorName": "Chris Evans",
+          "authorTitle": "Marketeer",
+          "authorCompany": "IBM",
+          "text": "Hit the thumbs up in agreement of these changes or comment any questions or objections to this post asap. I'd like to update Joan later this afternoon on whether we're pursue the pre-recorded or live option."
+        },
+        {
+          "testimonialId": 444,
+          "show": true,
+          "authorMember": false,
+          "authorPro": false,
+          "authorUserId": null,
+          "authorName": "Chris Evans",
+          "authorTitle": "Marketeer",
+          "authorCompany": "IBM",
+          "text": "Hit the thumbs up in agreement of these changes or comment any questions or objections to this post asap. I'd like to update Joan later this afternoon on whether we're pursue the pre-recorded or live option."
         }
       ],
       "projects": [

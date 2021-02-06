@@ -1,63 +1,45 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import TestimonialsSettingsUnit from "./TestimonialsSettingsUnit";
 
-import testPhoto from "../assets/blank.png";
+export default function TestimonialsSettingsList({ testimonialsData }) {
+  const [selectedTestimonials, setSelectedTestimonials] = useState([]);
 
-const testimonialsData = {
-  userId: 1,
-  testimonials: [
-    {
-      show: true,
-      testimonialId: 111,
-      authorImage: testPhoto,
-      authorMember: true,
-      authorPro: true,
-      authorUserId: 7,
-      authorName: "John Smith",
-      authorTitle: "CEO",
-      authorCompany: "Pro-Evo Technologies",
-      text:
-        "Hit the thumbs up in agreement of these changes or comment any questions or objections to this post asap. I'd like to update Joan later this afternoon on whether we're pursue the pre-recorded or live option.",
-    },
-    {
-      show: true,
-      testimonialId: 222,
-      authorImage: testPhoto,
-      authorMember: false,
-      authorPro: false,
-      authorUserId: null,
-      authorName: "Chris Evans",
-      authorTitle: "Marketeer",
-      authorCompany: "IBM",
-      text:
-        "Hit the thumbs up in agreement of these changes or comment any questions or objections to this post asap. I'd like to update Joan later this afternoon on whether we're pursue the pre-recorded or live option.",
-    },
-    {
-      show: false,
-      testimonialId: 333,
-      authorImage: testPhoto,
-      authorMember: false,
-      authorPro: false,
-      authorUserId: null,
-      authorName: "Chris Evans",
-      authorTitle: "Marketeer",
-      authorCompany: "IBM",
-      text:
-        "Hit the thumbs up in agreement of these changes or comment any questions or objections to this post asap. I'd like to update Joan later this afternoon on whether we're pursue the pre-recorded or live option.",
-    },
-  ],
-};
+  useEffect(() => {
+    testimonialsData.forEach((testimonial) => {
+      if (testimonial.show === true) {
+        setSelectedTestimonials((prevState) => [
+          ...prevState,
+          testimonial.testimonialId,
+        ]);
+      }
+    });
+  }, []);
 
-export default function TestimonialsSettingsList() {
+  const handleCheckboxChange = (boolean, id) => {
+    if (boolean === true) {
+      setSelectedTestimonials((prevState) => [...prevState, id]);
+    } else {
+      const newArray = [...selectedTestimonials];
+      const elementIndex = newArray.find((element) => element === id);
+      newArray.splice(newArray.indexOf(elementIndex), 1);
+      console.log(newArray);
+      setSelectedTestimonials(newArray);
+    }
+  };
+
   return (
     <div>
-      {testimonialsData.testimonials.map((testimonial, i) => (
-        <TestimonialsSettingsUnit
-          key={testimonial.testimonialId}
-          index={i + 1}
-          data={testimonial}
-        />
-      ))}
+      {testimonialsData
+        ? testimonialsData.map((testimonial, i) => (
+            <TestimonialsSettingsUnit
+              key={testimonial.testimonialId}
+              index={i}
+              data={testimonial}
+              selectedTestimonials={selectedTestimonials}
+              handleCheckboxChange={handleCheckboxChange}
+            />
+          ))
+        : "Loading..."}
     </div>
   );
 }
