@@ -67,25 +67,22 @@ export class ProfileSettings extends Component {
     }));
   };
 
-  // handleExperienceSettingsChange = (event, index, field) => {
-  //   const elementsIndex = this.state.profileData.experience.findIndex(
-  //     (element) => element.expId === index
-  //   );
-  //   let newArray = [this.state.profileData.experience];
-  //   // console.log(newArray[0][elementsIndex]);
-  //   // console.log("1");
-  //   newArray[0][elementsIndex] = {
-  //     ...newArray,
-  //     [field]: event.target.value,
-  //   };
-  //   this.setState((prevState) => ({
-  //     profileData: {
-  //       ...prevState.profileData,
-  //       experience: newArray,
-  //     },
-  //   }));
-  // };
-  // https://medium.com/javascript-in-plain-english/react-updating-a-value-in-state-array-7bae7c7eaef9
+  handleExperienceSettingsChange = (event, index, field) => {
+    const elementsIndex = this.state.profileData.experience.findIndex(
+      (element) => element.expId === index
+    );
+    let newArray = [...this.state.profileData.experience];
+    newArray[elementsIndex] = {
+      ...newArray[elementsIndex],
+      [field]: event.target.value,
+    };
+    this.setState((prevState) => ({
+      profileData: {
+        ...prevState.profileData,
+        experience: newArray,
+      },
+    }));
+  };
 
   render() {
     return (
@@ -266,6 +263,7 @@ export class ProfileSettings extends Component {
             <ExperienceInput
               data={this.state.profileData.experience[1]}
               index={1}
+              handleSettingsChange={this.handleExperienceSettingsChange}
             />
           </div>
         ) : (
