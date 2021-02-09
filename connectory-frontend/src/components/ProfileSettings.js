@@ -23,11 +23,7 @@ export class ProfileSettings extends Component {
 
   componentDidMount = async () => {
     this.getSettingsData();
-    this.getProfileData();
-    const profileImage = await fetch(`http://localhost:8080/profilePhotos/1`)
-      .then((res) => res.json())
-      .catch((err) => console.log(err));
-    this.setState({ image: profileImage.croppedPhoto });
+    // this.getProfileData();
   };
 
   getSettingsData = async () => {
@@ -40,12 +36,14 @@ export class ProfileSettings extends Component {
     });
   };
 
-  getProfileData = async () => {
-    const profileData = await fetch(`http://localhost:8080/profile/1`)
-      .then((res) => res.json())
-      .catch((err) => console.log(err));
-    this.setState({ profileData });
-  };
+  // getProfileData = async () => {
+  //   const profileData = await fetch(
+  //     `http://localhost:8080/profile/${this.state.profileData.id}`
+  //   )
+  //     .then((res) => res.json())
+  //     .catch((err) => console.log(err));
+  //   this.setState({ profileData });
+  // };
 
   toggleEditMode = (boolean) => {
     this.setState({ editMode: boolean });
@@ -84,6 +82,10 @@ export class ProfileSettings extends Component {
     }));
   };
 
+  handleCropImage = (photo) => {
+    this.setState({ userPhoto: photo });
+  };
+
   render() {
     return (
       <div>
@@ -111,7 +113,11 @@ export class ProfileSettings extends Component {
             </div>
             {this.state.editMode && (
               <div>
-                <CropperWidget userPhoto={this.state.image} />
+                <CropperWidget
+                  userPhoto={this.state.image}
+                  id={this.state.profileData.id}
+                  handleCropImage={this.handleCropImage}
+                />
                 {/* <ImageEditor
               handleSave={this.handleChildImageSave}
               height={200}
@@ -131,7 +137,10 @@ export class ProfileSettings extends Component {
                     id="input-name"
                     className="settings-input input-name"
                     type="text"
-                    defaultValue={this.state.profileData.userInfo.name}
+                    defaultValue={
+                      this.state.profileData.userInfo.name &&
+                      this.state.profileData.userInfo.name
+                    }
                     onChange={(e) =>
                       this.handleSettingsChange(e, "userInfo", "name")
                     }
@@ -143,7 +152,10 @@ export class ProfileSettings extends Component {
                     id="input-title"
                     className="settings-input input-title"
                     type="text"
-                    defaultValue={this.state.profileData.userInfo.title}
+                    defaultValue={
+                      this.state.profileData.userInfo.title &&
+                      this.state.profileData.userInfo.title
+                    }
                     onChange={(e) =>
                       this.handleSettingsChange(e, "userInfo", "title")
                     }
@@ -156,7 +168,10 @@ export class ProfileSettings extends Component {
                   id="input-description"
                   className="settings-input input-description"
                   type="text"
-                  defaultValue={this.state.profileData.userInfo.description}
+                  defaultValue={
+                    this.state.profileData.userInfo.description &&
+                    this.state.profileData.userInfo.description
+                  }
                   onChange={(e) =>
                     this.handleSettingsChange(e, "userInfo", "description")
                   }
@@ -216,7 +231,10 @@ export class ProfileSettings extends Component {
                     id="input-location"
                     className="settings-input input-telephone"
                     type="number"
-                    defaultValue={this.state.profileData.userInfo.telephone}
+                    defaultValue={
+                      this.state.profileData.userInfo.telephone &&
+                      this.state.profileData.userInfo.telephone
+                    }
                     onChange={(e) =>
                       this.handleSettingsChange(e, "userInfo", "telephone")
                     }
@@ -230,7 +248,10 @@ export class ProfileSettings extends Component {
                     id="input-email"
                     className="settings-input input-email"
                     type="email"
-                    defaultValue={this.state.profileData.userInfo.email}
+                    defaultValue={
+                      this.state.profileData.userInfo.email &&
+                      this.state.profileData.userInfo.email
+                    }
                     onChange={(e) =>
                       this.handleSettingsChange(e, "userInfo", "email")
                     }
@@ -242,7 +263,10 @@ export class ProfileSettings extends Component {
                     id="input-website"
                     className="settings-input input-website"
                     type="text"
-                    defaultValue={this.state.profileData.userInfo.website}
+                    defaultValue={
+                      this.state.profileData.userInfo.website &&
+                      this.state.profileData.userInfo.website
+                    }
                     onChange={(e) =>
                       this.handleSettingsChange(e, "userInfo", "website")
                     }

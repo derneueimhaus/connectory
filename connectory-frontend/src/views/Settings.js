@@ -11,7 +11,9 @@ export default class Settings extends Component {
   }
 
   componentDidMount = async () => {
-    const profileData = await fetch(`http://localhost:8080/profile/1`)
+    const profileData = await fetch(
+      `http://localhost:8080/profile/${this.props.match.params.id}`
+    )
       .then((res) => res.json())
       .catch((err) => console.log(err));
     this.setState({ profileData });

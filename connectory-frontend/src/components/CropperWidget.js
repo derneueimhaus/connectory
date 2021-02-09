@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import Cropper from "react-cropper";
 import "cropperjs/dist/cropper.css";
 
-const CropperWidget = ({ userPhoto }) => {
+const CropperWidget = ({ userPhoto, id, handleCropImage }) => {
   const [image, setImage] = useState(userPhoto);
   const [cropData, setCropData] = useState("");
   const [cropper, setCropper] = useState();
@@ -20,6 +20,7 @@ const CropperWidget = ({ userPhoto }) => {
   const getCropData = () => {
     if (typeof cropper !== "undefined") {
       setCropData(cropper.getCroppedCanvas().toDataURL());
+      handleCropImage(cropper.getCroppedCanvas().toDataURL());
     }
   };
 
@@ -31,7 +32,7 @@ const CropperWidget = ({ userPhoto }) => {
   }, [cropData]);
 
   async function postImage() {
-    await fetch(`http://localhost:8080/profilePhotos`, {
+    await fetch(`http://localhost:8080/profile/`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

@@ -62,12 +62,17 @@ class SignUpTwo extends Component {
     this.props.editShare(checked);
   };
 
+  handleCropImage = (photo) => {
+    this.setState({ userPhoto: photo });
+  };
+
   handleSubmitInfo = async (e) => {
     e.preventDefault();
     const newUserInfo = { ...this.state.userInfo };
     newUserInfo.description = this.props.profileSettings.description;
     newUserInfo.location = this.props.profileSettings.location;
     newUserInfo.profession = this.props.profileSettings.profession;
+    newUserInfo.photo = this.state.userPhoto;
     console.log(newUserInfo);
     await fetch(`http://localhost:8080/profile/${this.props.id}`, {
       method: "PATCH",
@@ -94,7 +99,11 @@ class SignUpTwo extends Component {
         <div className="signup-page-header">
           <h1>Tell us about you.</h1>
           <h4>FIRST THINGS FIRST: SOME BASIC INFO</h4>
-          <CropperWidget userPhoto={testPhoto} />
+          <CropperWidget
+            userPhoto={testPhoto}
+            id={this.props.id}
+            handleCropImage={this.handleCropImage}
+          />
         </div>
         <div className="signup-form-container">
           <div className="signup-form">
