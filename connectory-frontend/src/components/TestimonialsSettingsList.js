@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import SaveSettings from "./SaveSettings";
 import TestimonialsSettingsUnit from "./TestimonialsSettingsUnit";
 
 export default function TestimonialsSettingsList({ testimonialsData }) {

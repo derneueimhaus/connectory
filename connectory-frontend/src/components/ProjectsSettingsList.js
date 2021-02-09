@@ -5,6 +5,7 @@ import AddProject from "./AddProject";
 import ProjectsSettingsUnit from "./ProjectsSettingsUnit";
 
 import wingPhoto from "../assets/wing.jpg";
+import SaveSettings from "./SaveSettings";
 
 const projectsData = [
   {

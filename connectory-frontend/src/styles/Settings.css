@@ -1,3 +1,11 @@
+.saved-container {
+  display: flex;
+}
+
+.saved {
+  color: var(--green-buttons);
+}
+
 /* General styling -- all tabs */
 .settings-image {
   display: flex;

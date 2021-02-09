@@ -31,6 +31,16 @@ class SignUpTwo extends Component {
 
   componentDidMount = () => {
     this.getSettingsData();
+    this.getProfileData();
+  };
+
+  getProfileData = async () => {
+    const profileInfo = await fetch(
+      `http://localhost:8080/profile/${this.props.id}`
+    )
+      .then((res) => res.json())
+      .catch((err) => console.log(err));
+    this.setState({ userInfo: profileInfo.userInfo });
   };
 
   getSettingsData = async () => {
@@ -54,25 +64,23 @@ class SignUpTwo extends Component {
 
   handleSubmitInfo = async (e) => {
     e.preventDefault();
-    // await fetch(`http://localhost:8080/profile/1`, {
-    //   method: "POST",
-    //   headers: {
-    //     "Content-Type": "application/json",
-    //     // "Access-Control-Allow-Origin": "*",
-    //   },
-    //   body: JSON.stringify({
-    //     userInfo: {
-    //       description: this.props.profileSettings.description,
-    //       location: this.props.profileSettings.location,
-    //       profession: this.props.profileSettings.profession,
-    //     },
-    //     testimonials: {},
-    //     projects: [],
-    //     experience: [],
-    //   }),
-    // })
-    //   .then((res) => res.json())
-    //   .catch((err) => console.log(err));
+    const newUserInfo = { ...this.state.userInfo };
+    newUserInfo.description = this.props.profileSettings.description;
+    newUserInfo.location = this.props.profileSettings.location;
+    newUserInfo.profession = this.props.profileSettings.profession;
+    console.log(newUserInfo);
+    await fetch(`http://localhost:8080/profile/${this.props.id}`, {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+        // "Access-Control-Allow-Origin": "*",
+      },
+      body: JSON.stringify({
+        userInfo: newUserInfo,
+      }),
+    })
+      .then((res) => res.json())
+      .catch((err) => console.log(err));
     this.props.history.push("/");
   };
 
