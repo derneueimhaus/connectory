@@ -23,23 +23,7 @@ export default class ProfilesList extends Component {
   render() {
     return (
       <div className="profiles-container">
-        {this.state.profilesList && (
-          // this.state.profilesList.map((element, i) => (
-          //   <Link
-          //     className="profile-links"
-          //     key={i}
-          //     to={`/profile/${element.userId}`}
-          //   >
-          //     <ProfileCard
-          //       name={element.name}
-          //       profession={element.profession}
-          //       email={element.email}
-          //       telephone={element.telephone}
-          //       website={element.website}
-          //       photo={element.photo}
-          //     />
-          //   </Link>
-          // ))}
+        {this.state.profilesList ? (
           <Pagination
             data={this.state.profilesList}
             RenderComponent={ProfileCard}
@@ -47,6 +31,8 @@ export default class ProfilesList extends Component {
             dataLimit={6}
             // pageLimit={5}
           />
+        ) : (
+          "Looks like there's nothing here..."
         )}
       </div>
     );
