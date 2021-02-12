@@ -8,6 +8,7 @@ import profileSettingsReducer from "./profileSettingsReducer";
 import accountSettingsReducer from "./accountSettingsReducers";
 import filterReducer from "./filterReducer";
 import loginReducer from "./loginReducer";
+import { isLoadingReducer, shallowProfilesReducer } from "./loadReducers";
 
 const rootReducer = combineReducers({
   search: searchReducer,
@@ -18,6 +19,8 @@ const rootReducer = combineReducers({
   accountSettings: accountSettingsReducer,
   filter: filterReducer,
   login: loginReducer,
+  isLoading: isLoadingReducer,
+  profilesList: shallowProfilesReducer,
 });
 
 export default rootReducer;

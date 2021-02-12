@@ -36,10 +36,10 @@ export default function Pagination({
   //   return new Array(pageLimit).fill().map((_, idx) => start + idx + 1);
   // };
 
+  // console.log(getPaginatedData());
   return (
     <div>
       <h3>{title}</h3>
-
       <div className="profiles-container">
         {getPaginatedData().map((element, idx) => (
           <Link
