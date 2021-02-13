@@ -1,12 +1,23 @@
 import React, { useState, useEffect } from "react";
 
-function SaveSettings({ data }) {
+import { connect } from "react-redux";
+
+export function SaveSettings({ data, objKey, profileData }) {
   const [saved, setSaved] = useState(false);
 
-  const handleSaveChanges = () => {
+  const handleSaveChanges = async () => {
+    await fetch(`http://localhost:8080/profile/${profileData.id}`, {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+        // "Access-Control-Allow-Origin": "*",
+      },
+      body: JSON.stringify({ [objKey]: profileData[objKey] }),
+    })
+      .then((res) => res.json())
+      .catch((err) => console.log(err));
     setSaved(true);
     setTimeout(() => setSaved(false), 4000);
-    console.log(data);
   };
 
   useEffect(() => console.log("updated"), [data]);
@@ -23,4 +34,8 @@ function SaveSettings({ data }) {
   );
 }
 
-export default SaveSettings;
+const mapStateToProps = (state) => ({
+  profileData: state.profileSettings.profileData,
+});
+
+export default connect(mapStateToProps)(SaveSettings);

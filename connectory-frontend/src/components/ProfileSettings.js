@@ -8,6 +8,7 @@ import "../styles/Settings.css";
 
 import ExperienceInput from "./ExperienceInput";
 import CropperWidget from "./CropperWidget";
+import SaveSettings from "./SaveSettings";
 
 export class ProfileSettings extends Component {
   constructor(props) {
@@ -94,6 +95,7 @@ export class ProfileSettings extends Component {
   render() {
     return (
       <div>
+        <SaveSettings objKey="userInfo" />
         <h4>Profile Image</h4>
         <div className="settings-image">
           <img

@@ -12,12 +12,6 @@ import TestimonialsSettingsList from "./TestimonialsSettingsList";
 
 function SettingsTabs(props) {
   const [projects, setProjects] = useState(false);
-  const [saved, setSaved] = useState(false);
-
-  const handleSaveChanges = () => {
-    setSaved(true);
-    setTimeout(() => setSaved(false), 4000);
-  };
 
   return (
     <Tabs>
@@ -27,12 +21,6 @@ function SettingsTabs(props) {
         <Tab onClick={() => setProjects(true)}>Projects</Tab>
         <Tab onClick={() => setProjects(false)}>Account</Tab>
       </TabList>
-      <div className="saved-container">
-        <button onClick={handleSaveChanges}>Save Changes</button>
-        {saved && (
-          <p className="saved">{`Saved ${String.fromCharCode(10003)}`}</p>
-        )}
-      </div>
       {projects && (
         <button onClick={() => props.toggleAddMode(!props.addProject.show)}>
           {props.addProject.show ? "Hide Project Creator" : "Add Project"}
@@ -59,6 +47,7 @@ function SettingsTabs(props) {
 
 const mapStateToProps = (state) => ({
   addProject: state.addProject,
+  profileData: state.profileSettings.profileData,
 });
 
 const mapActionsToProps = { toggleAddMode };

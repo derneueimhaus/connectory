@@ -37,6 +37,10 @@
   background-color: var(--pink-buttons);
 }
 
+button {
+  cursor: pointer;
+}
+
 .button {
   border: none;
   border-radius: 50px;
