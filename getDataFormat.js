@@ -8,7 +8,8 @@ const GET_Login_obj = {
   userId: 1,
 };
 
-const GET_Profiles_arr = [
+const GET_Shallow_Profiles_arr = [
+  // for the basic profile info on the homepage
   {
     name: "test testerson",
     profession: "marketing",
@@ -42,31 +43,36 @@ const GET_Profiles_arr = [
 ];
 
 const GET_Filters_obj = {
-  profession: ["value1", "value2", "value3"], // etc. This might need key ids too.
-  location: {
-    options: [
-      {
-        name: "Change= ZO",
-        key: "chzo",
-      },
-      {
-        name: "Change= PRO",
-        key: "chpro",
-      }, // etc.
-    ],
-  },
-  contact: {
-    options: [
-      {
-        name: "email",
-        key: "email",
-      },
-      {
-        name: "website",
-        key: "website",
-      }, // etc.
-    ],
-  },
+  profession: [
+    {
+      name: "Marketing",
+      key: "marketing",
+    },
+    {
+      name: "Finance",
+      key: "finance",
+    }, // etc.
+  ],
+  location: [
+    {
+      name: "Change= ZO",
+      key: "chzo",
+    },
+    {
+      name: "Change= PRO",
+      key: "chpro",
+    }, // etc.
+  ],
+  contact: [
+    {
+      name: "email",
+      key: "email",
+    },
+    {
+      name: "website",
+      key: "website",
+    }, // etc.
+  ],
 };
 
 // Profile page
@@ -93,7 +99,7 @@ const GET_PofileData_obj = {
       {
         testimonialId: 111,
         show: true, // you may also have "show: false" records. You can send them if it's easier and I an filter on this end.
-        authorMember: true,
+        selfTestimonial: true,
         authorPro: true,
         authorUserId: 7,
         authorPhoto: "https://database.com/user-upoladed-photo",
@@ -106,7 +112,7 @@ const GET_PofileData_obj = {
       {
         testimonialId: 222,
         show: true,
-        authorMember: false, // two options here: could either put a blank photo on the backend, or I can check if they're a member and, if not, add a blank picture from the frontend.
+        selfTestimonial: false, // two options here: could either put a blank photo on the backend, or I can check if they're a member and, if not, add a blank picture from the frontend.
         authorPro: false,
         authorUserId: null,
         authorName: "Chris Evans",
@@ -124,7 +130,7 @@ const GET_PofileData_obj = {
       subheader: "Increased conversion rates by 27%",
       description:
         "2nd Edition: Shaping the recovery. On 11–13 November, after the US presidential elections, the Financial Times, in partnership with TNW, gather the most senior global decision makers and leading minds in policy, business, tech and finance for three days of online conversations with top FT journalists. (198 kB)",
-      photo: "https://database.com/user-upoladed-photo",
+      photo: "https://database.com/user-upoladed-photo", // apply stock image on creation of this record, just like profile.
     },
     {
       projectId: 2,
