@@ -6,7 +6,6 @@ import { editProfileData } from "../redux/actions/profileSettingsActions";
 
 import "../styles/Settings.css";
 
-import ExperienceInput from "./ExperienceInput";
 import CropperWidget from "./CropperWidget";
 import SaveSettings from "./SaveSettings";
 
@@ -249,21 +248,6 @@ export class ProfileSettings extends Component {
             </div>
           </div>
         </div>
-        <hr style={{ border: "solid 1px purple" }} />
-        <h4>Experience</h4>
-        <h5>Experience 1</h5>
-        <p>Experience 1 is set as your featured experience by default.</p>
-        <ExperienceInput
-          data={this.props.profileData.experience[0]}
-          index={0}
-          handleSettingsChange={this.handleExperienceSettingsChange}
-        />
-        <h5>Experience 2</h5>
-        <ExperienceInput
-          data={this.props.profileData.experience[1]}
-          index={1}
-          handleSettingsChange={this.handleExperienceSettingsChange}
-        />
       </div>
     );
   }

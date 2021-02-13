@@ -9,6 +9,7 @@ import "react-tabs/style/react-tabs.css";
 import ProfileSettings from "./ProfileSettings";
 import ProjectsSettingsList from "./ProjectsSettingsList";
 import TestimonialsSettingsList from "./TestimonialsSettingsList";
+import ExperienceSettings from "./ExperienceSettings";
 
 function SettingsTabs(props) {
   const [projects, setProjects] = useState(false);
@@ -17,6 +18,7 @@ function SettingsTabs(props) {
     <Tabs>
       <TabList>
         <Tab onClick={() => setProjects(false)}>Profile</Tab>
+        <Tab onClick={() => setProjects(false)}>Experience</Tab>
         <Tab onClick={() => setProjects(false)}>Testimonials</Tab>
         <Tab onClick={() => setProjects(true)}>Projects</Tab>
         <Tab onClick={() => setProjects(false)}>Account</Tab>
@@ -29,6 +31,9 @@ function SettingsTabs(props) {
 
       <TabPanel>
         <ProfileSettings />
+      </TabPanel>
+      <TabPanel>
+        <ExperienceSettings />
       </TabPanel>
       <TabPanel>
         <TestimonialsSettingsList

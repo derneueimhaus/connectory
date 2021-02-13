@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 
 import { connect } from "react-redux";
 
-export function SaveSettings({ data, objKey, profileData }) {
+export function SaveSettings({ objKey, profileData }) {
   const [saved, setSaved] = useState(false);
 
   const handleSaveChanges = async () => {
@@ -19,8 +19,6 @@ export function SaveSettings({ data, objKey, profileData }) {
     setSaved(true);
     setTimeout(() => setSaved(false), 4000);
   };
-
-  useEffect(() => console.log("updated"), [data]);
 
   return (
     <div className="saved-container">
