@@ -6,19 +6,10 @@ import {
   EDIT_PROFILE_DATA,
 } from "../actions/profileSettingsActions";
 
-const profileSettingsReducer = (
-  state = { location: "", profession: "", description: "" },
-  action
-) => {
+const profileSettingsReducer = (state, action) => {
   switch (action.type) {
     case LOAD_PROFILE_DATA:
       return { ...state, profileData: action.payload };
-    case EDIT_LOCATION:
-      return { ...state, location: action.payload };
-    case EDIT_PROFESSION:
-      return { ...state, profession: action.payload };
-    case EDIT_DESCRIPTION:
-      return { ...state, description: action.payload };
     case EDIT_PROFILE_DATA:
       return { ...state, profileData: action.payload };
     default:

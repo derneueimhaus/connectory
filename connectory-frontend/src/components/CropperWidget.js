@@ -24,24 +24,24 @@ const CropperWidget = ({ userPhoto, id, handleCropImage }) => {
     }
   };
 
-  useEffect(() => {
-    if (cropData) {
-      postImage(cropData);
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [cropData]);
+  // useEffect(() => {
+  //   if (cropData) {
+  //     postImage(cropData);
+  //   }
+  //   // eslint-disable-next-line react-hooks/exhaustive-deps
+  // }, [cropData]);
 
-  async function postImage() {
-    await fetch(`http://localhost:8080/profile/`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        croppedPhoto: cropData,
-      }),
-    });
-  }
+  // async function postImage() {
+  //   await fetch(`http://localhost:8080/profile/`, {
+  //     method: "POST",
+  //     headers: {
+  //       "Content-Type": "application/json",
+  //     },
+  //     body: JSON.stringify({
+  //       croppedPhoto: cropData,
+  //     }),
+  //   });
+  // }
 
   return (
     <div>
