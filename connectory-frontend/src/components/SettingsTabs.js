@@ -6,7 +6,7 @@ import { toggleAddMode } from "../redux/actions/projectActions";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
 
-import { ProfileSettings } from "./ProfileSettings";
+import ProfileSettings from "./ProfileSettings";
 import ProjectsSettingsList from "./ProjectsSettingsList";
 import TestimonialsSettingsList from "./TestimonialsSettingsList";
 
@@ -40,7 +40,7 @@ function SettingsTabs(props) {
       )}
 
       <TabPanel>
-        <ProfileSettings profileData={props.profileData} />
+        <ProfileSettings />
       </TabPanel>
       <TabPanel>
         <TestimonialsSettingsList

@@ -2,7 +2,6 @@ import React, { Component } from "react";
 
 import { connect } from "react-redux";
 import { addSearchTerm } from "../redux/actions/searchActions";
-import { displayAlert } from "../redux/thunks";
 
 import Filters from "./Filters";
 import { ReactComponent as Filter } from "../assets/filters.svg";
@@ -31,9 +30,6 @@ class SearchFilter extends Component {
   render() {
     return (
       <div>
-        <button onClick={() => this.props.test(this.state.searchTerm)}>
-          Click me
-        </button>
         <div className="homepage-selection">
           <div className="search">
             <form>
@@ -72,7 +68,6 @@ const mapStateToProps = (state) => {
 
 const mapActionsToProps = (dispatch) => ({
   addSearchTerm: (text) => dispatch(addSearchTerm(text)),
-  test: (text) => dispatch(displayAlert(text)),
 });
 
 export default connect(mapStateToProps, mapActionsToProps)(SearchFilter);

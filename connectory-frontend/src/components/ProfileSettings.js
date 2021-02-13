@@ -2,6 +2,8 @@ import React, { Component } from "react";
 
 import { connect } from "react-redux";
 
+import { editProfileData } from "../redux/actions/profileSettingsActions";
+
 import "../styles/Settings.css";
 
 import ExperienceInput from "./ExperienceInput";
@@ -53,31 +55,37 @@ export class ProfileSettings extends Component {
     this.setState({ image: file });
   };
 
-  handleSettingsChange = (event, section, field) => {
-    this.setState((prevState) => ({
-      profileData: {
-        ...prevState.profileData,
-        [section]: {
-          ...prevState.profileData[section],
-          [field]: event.target.value,
-        },
-      },
-    }));
+  // handleSettingsChange = (event, section, field) => {
+  //   this.setState((prevState) => ({
+  //     profileData: {
+  //       ...prevState.profileData,
+  //       [section]: {
+  //         ...prevState.profileData[section],
+  //         [field]: event.target.value,
+  //       },
+  //     },
+  //   }));
+  // };
+
+  handleUserInfoSettingsChange = (e, key) => {
+    const tempProfileData = this.props.profileData;
+    tempProfileData.userInfo[key] = e.target.value;
+    this.props.editProfileData(tempProfileData);
   };
 
   handleExperienceSettingsChange = (event, index, field) => {
     const elementsIndex = this.state.profileData.experience.findIndex(
       (element) => element.expId === index
     );
-    let newArray = [...this.state.profileData.experience];
-    newArray[elementsIndex] = {
-      ...newArray[elementsIndex],
+    let tempArray = [...this.state.profileData.experience];
+    tempArray[elementsIndex] = {
+      ...tempArray[elementsIndex],
       [field]: event.target.value,
     };
     this.setState((prevState) => ({
       profileData: {
         ...prevState.profileData,
-        experience: newArray,
+        experience: tempArray,
       },
     }));
   };
@@ -89,8 +97,18 @@ export class ProfileSettings extends Component {
   render() {
     return (
       <div>
-        {this.state.profileData ? (
-          <div>
+        <div>hey there</div>
+        <div className="input-label-pair">
+          <label htmlFor="input-name">Name</label>
+          <input
+            id="input-name"
+            className="settings-input input-name"
+            type="text"
+            defaultValue={this.props.profileData.userInfo.name}
+            onChange={(e) => this.handleUserInfoSettingsChange(e, "name")}
+          />
+        </div>
+        {/*<div>
             <h4>Profile Image</h4>
             <div className="settings-image">
               <img
@@ -124,7 +142,7 @@ export class ProfileSettings extends Component {
               width={200}
               borderRadius={150}
               photo={this.state.image}
-            /> */}
+            /> 
               </div>
             )}
             <hr style={{ border: "solid 1px purple" }} />
@@ -289,17 +307,19 @@ export class ProfileSettings extends Component {
               index={1}
               handleSettingsChange={this.handleExperienceSettingsChange}
             />
-          </div>
-        ) : (
-          "Loading..."
-        )}
+          </div> */}
       </div>
     );
   }
 }
 
-const mapStateToProps = (state) => ({});
+const mapStateToProps = (state) => ({
+  profileData: state.profileSettings.profileData,
+  test: state.profileSettings.test,
+});
 
-const mapActionsToProps = {};
+const mapActionsToProps = (dispatch) => ({
+  editProfileData: (text) => dispatch(editProfileData(text)),
+});
 
 export default connect(mapStateToProps, mapActionsToProps)(ProfileSettings);
