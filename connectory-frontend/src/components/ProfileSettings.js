@@ -174,12 +174,13 @@ export class ProfileSettings extends Component {
               {this.state.professions.map((profession, i) => (
                 <option
                   key={i}
-                  value={profession}
+                  value={profession.title}
                   selected={
-                    profession === this.props.profileData.userInfo.profession
+                    profession ===
+                    this.props.profileData.userInfo.profession.title
                   }
                 >
-                  {profession}
+                  {profession.title}
                 </option>
               ))}
             </select>
@@ -200,12 +201,13 @@ export class ProfileSettings extends Component {
                 {this.state.locations.map((location, i) => (
                   <option
                     key={i}
-                    value={location}
+                    value={location.title}
                     selected={
-                      location === this.props.profileData.userInfo.location
+                      location ===
+                      this.props.profileData.userInfo.location.title
                     }
                   >
-                    {location}
+                    {location.title}
                   </option>
                 ))}
               </select>

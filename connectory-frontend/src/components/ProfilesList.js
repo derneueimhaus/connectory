@@ -21,20 +21,16 @@ export default class ProfilesList extends Component {
   };
 
   render() {
-    return (
-      <div className="profiles-container">
-        {this.state.profilesList ? (
-          <Pagination
-            data={this.state.profilesList}
-            RenderComponent={ProfileCard}
-            title="Profiles"
-            dataLimit={6}
-            // pageLimit={5}
-          />
-        ) : (
-          "Looks like there's nothing here..."
-        )}
-      </div>
+    return this.state.profilesList ? (
+      <Pagination
+        data={this.state.profilesList}
+        RenderComponent={ProfileCard}
+        title="Profiles"
+        dataLimit={6}
+        // pageLimit={5}
+      />
+    ) : (
+      "Looks like there's nothing here..."
     );
   }
 }

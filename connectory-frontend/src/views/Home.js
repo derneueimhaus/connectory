@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 import ProfilesList from "../components/ProfilesList";
@@ -16,6 +16,19 @@ const professionsArray = [
 ];
 
 export default function Home() {
+  const [filterOptions, setFilterOptions] = useState("");
+
+  const getFilterData = async () => {
+    const filterOptions = await fetch(`http://localhost:8080/filteroptions`)
+      .then((res) => res.json())
+      .catch((err) => console.log(err));
+    setFilterOptions(filterOptions);
+  };
+
+  useEffect(() => {
+    getFilterData();
+  }, []);
+
   return (
     <div>
       <div className="home-page-header">
@@ -27,7 +40,7 @@ export default function Home() {
         </Link>
       </div>
       <div className="apply-padding">
-        <SearchFilter professions={professionsArray} />
+        <SearchFilter filterOptions={filterOptions} />
         <ProfilesList />
       </div>
     </div>

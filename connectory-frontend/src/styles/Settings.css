@@ -3,7 +3,11 @@
 }
 
 .saved {
-  color: var(--green-buttons);
+  margin-left: 5px;
+  padding: 5px 15px;
+  border-radius: 25px;
+  background-color: var(--green-buttons);
+  color: white;
 }
 
 /* General styling -- all tabs */

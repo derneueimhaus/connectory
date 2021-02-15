@@ -121,8 +121,8 @@ class SignUpTwo extends Component {
               >
                 <option value="default">SELECT PROFESSION...</option>
                 {this.state.professions.map((profession, i) => (
-                  <option key={i} value={profession}>
-                    {profession}
+                  <option key={i} value={profession.key}>
+                    {profession.title}
                   </option>
                 ))}
               </select>
@@ -139,8 +139,8 @@ class SignUpTwo extends Component {
               >
                 <option value="default">SELECT LOCATION...</option>
                 {this.state.locations.map((location, i) => (
-                  <option key={i} value={location}>
-                    {location}
+                  <option key={i} value={location.key}>
+                    {location.title}
                   </option>
                 ))}
               </select>

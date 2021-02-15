@@ -27,7 +27,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "stubapi": "json-server db.json -p 8080"
+    "stubapi": "json-server -w db.json -p 8080"
   },
   "eslintConfig": {
     "extends": [

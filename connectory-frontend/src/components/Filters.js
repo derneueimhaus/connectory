@@ -1,26 +1,10 @@
 import React, { Component } from "react";
 import Checkboxes from "./Checkboxes";
 
-const testFilterOptions = [
-  {
-    title: "location",
-    options: [
-      { option: "ChangePRO", key: "chpro" },
-      { option: "Change= ZO", key: "chzo" },
-      { option: "Change= NW", key: "chnw" },
-    ],
-  },
-  {
-    title: "contact",
-    options: [
-      { option: "email", key: "email" },
-      { option: "phone", key: "phone" },
-      { option: "website", key: "website" },
-    ],
-  },
-];
+import { connect } from "react-redux";
+import { clearFilters } from "../redux/actions/filterActions";
 
-export default class Filters extends Component {
+export class Filters extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -30,16 +14,35 @@ export default class Filters extends Component {
     };
   }
 
+  handleFormSubmit = async (e) => {
+    e.preventDefault();
+    await fetch("http://localhost:8080/filters", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        professions: this.state.professionValues,
+        locationContactFilters: this.props.filters,
+      }),
+    });
+  };
+
   handleDropdownChange = (e) => {
     let value = Array.from(e.target.selectedOptions, (option) => option.value);
     this.setState({ professionValues: value });
   };
 
-  handleDropdownReset = () => {
+  handleReset = () => {
+    this.props.clearFilters();
     this.setState({ professionValues: [] });
   };
 
   render() {
+    const checkboxData = [
+      this.props.filterOptions[1],
+      this.props.filterOptions[2],
+    ];
     return (
       <div>
         <form>
@@ -52,27 +55,28 @@ export default class Filters extends Component {
               <option value="default" disabled={true}>
                 SELECT PROFESSION...
               </option>
-              {this.props.professions.map((profession, i) => (
-                <option key={i} value={profession}>
-                  {profession}
+              {this.props.filterOptions[1].options.map((profession) => (
+                <option key={profession.key} value={profession.title}>
+                  {profession.title}
                 </option>
               ))}
             </select>
-            {this.state.professionValues.map((profession) => (
-              <span>{profession}</span>
+            {this.state.professionValues.map((profession, i) => (
+              <span key={`${profession}_${i}`}>{profession}</span>
             ))}
           </div>
-          {testFilterOptions.map((obj) => (
+
+          {checkboxData.map((obj) => (
             <Checkboxes
               title={obj.title}
               options={obj.options}
               key={obj.title}
             />
           ))}
-          <button type="reset" onClick={this.handleDropdownReset}>
+          <button type="reset" onClick={this.handleReset}>
             Clear Filters
           </button>
-          <button type="submit" onClick={(e) => e.preventDefault()}>
+          <button type="submit" onClick={this.handleFormSubmit}>
             Apply Filters
           </button>
         </form>
@@ -80,3 +84,11 @@ export default class Filters extends Component {
     );
   }
 }
+
+const mapStateToProps = (state) => ({
+  filters: state.filter,
+});
+
+const mapActionsToProps = { clearFilters };
+
+export default connect(mapStateToProps, mapActionsToProps)(Filters);

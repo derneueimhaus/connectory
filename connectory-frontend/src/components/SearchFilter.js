@@ -53,7 +53,7 @@ class SearchFilter extends Component {
           </button>
         </div>
         {this.state.showFilters && (
-          <Filters professions={this.props.professions} />
+          <Filters filterOptions={this.props.filterOptions} />
         )}
       </div>
     );

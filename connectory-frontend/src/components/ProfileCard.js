@@ -16,14 +16,18 @@ export default function ProfileCard({
 }) {
   return (
     <div className="profile-card">
-      <h5>{name}</h5>
-      <h6>{profession}</h6>
-      <div className="contact-icons-container">
-        {email && <Email className="contact-icon" />}
-        {telephone && <Phone className="contact-icon" />}
-        {website && <Website className="contact-icon" />}
+      <div className="profile-card-header">
+        <p>{name}</p>
+        <p>{profession}</p>
       </div>
-      <img className="profile-card-img" src={photo} alt={name} />
+      <div>
+        <img className="profile-card-img" src={photo} alt={name} />
+        <div className="contact-icons-container">
+          {email && <Email className="contact-icon" />}
+          {telephone && <Phone className="contact-icon" />}
+          {website && <Website className="contact-icon" />}
+        </div>
+      </div>
     </div>
   );
 }
