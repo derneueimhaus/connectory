@@ -1,3 +1,8 @@
+.navbar-container {
+  position: fixed;
+  top: 0;
+}
+
 .navbar {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
@@ -21,9 +26,10 @@
 }
 
 .navbar-header {
-  grid-column-start: 2;
+  grid-column-start: 1;
   justify-self: center;
   align-self: center;
+  margin-left: 5px;
   text-decoration: none;
   font-size: 28px;
   font-weight: 900;
@@ -31,14 +37,18 @@
 }
 
 .buttons-container {
+  grid-column-start: 3;
   display: flex;
   align-items: center;
   justify-content: flex-end;
 }
 
 .log-in-button {
-  height: 3em;
+  height: 2em;
+  width: 5em;
   margin: 5px;
+  padding: 5px !important;
+  font-size: 14px !important;
   background-color: var(--green-buttons);
 }
 

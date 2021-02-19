@@ -31,25 +31,24 @@ class SearchFilter extends Component {
     return (
       <div>
         <div className="homepage-selection">
-          <div className="search">
-            <form>
-              <input
-                type="text"
-                placeholder="Know who you're looking for? Search for a name..."
-                onChange={this.handleInputChange}
-              />
-              <button type="submit">
-                Go
-                <Search />
-              </button>
-            </form>
-          </div>
+          <form className="search">
+            <input
+              className="search-box"
+              type="text"
+              placeholder="Know who you're looking for? Search for a name..."
+              onChange={this.handleInputChange}
+            />
+            <button className="button search-submit" type="submit">
+              <Search className="search-filter-icon" />
+              Go
+            </button>
+          </form>
           <button
             className="button filters-toggle"
             onClick={() => this.toggleFilters(!this.state.showFilters)}
           >
             <p>Filters</p>
-            <Filter />
+            <Filter className="search-filter-icon" />
           </button>
         </div>
         {this.state.showFilters && (

@@ -32,9 +32,9 @@ export default function Home() {
   return (
     <div>
       <div className="home-page-header">
-        <p className="home-page-title">
+        <span className="home-page-title">
           Join the Change= network and connect with collaborators
-        </p>
+        </span>
         <Link className="sign-up-button-a" to="/signup">
           <button className="button sign-up-button">SIGN UP</button>
         </Link>

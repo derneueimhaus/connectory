@@ -18,6 +18,7 @@ function App() {
     <Router>
       <Provider store={store}>
         <NavBar />
+        <div className="navbar-dodger"></div>
         <div className="App">
           <Switch>
             <Route exact path="/" component={Home} />

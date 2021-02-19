@@ -12,7 +12,7 @@ import "../styles/NavBar.css";
 
 function NavBar({ login }) {
   return (
-    <div>
+    <div className="navbar-container">
       <div className="navbar">
         <div className="container-helper"></div>
         <Link to="/" className="navbar-header">

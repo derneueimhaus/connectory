@@ -1,6 +1,33 @@
 .homepage-selection {
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
+}
+
+.search {
+  display: flex;
+}
+
+.search-box {
+  flex-grow: 2;
+  border-radius: 25px;
+  border: 2px solid var(--border-grey);
+}
+
+.search-submit {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 5px !important;
+  padding-bottom: 5px !important;
+  background-color: var(--pink-buttons);
+}
+
+.search svg path {
+  fill: white;
+}
+
+.search-filter-icon {
+  width: 1em;
 }
 
 .filters-toggle {
