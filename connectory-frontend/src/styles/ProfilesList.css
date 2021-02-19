@@ -1,17 +1,24 @@
 .profiles-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: center;
+  display: grid;
+  grid-template-rows: 6;
+  justify-content: center;
 }
 
 .profile-links {
-  flex: 1 0 26%;
-  grid-template-rows: 20% 80%;
-  margin: 5px;
+  margin: 10px;
   text-decoration: none;
 }
 
 .pagination {
   float: right;
+}
+
+.pagination-button {
+  background-color: var(--title-blue);
+  margin: 0 5px;
+}
+
+.pagination-button:disabled {
+  background-color: #2087c362;
+  margin: 0 5px;
 }

@@ -1,6 +1,7 @@
 .navbar-container {
   position: fixed;
   top: 0;
+  z-index: 10;
 }
 
 .navbar {
@@ -23,6 +24,7 @@
 .verloop {
   height: 50%;
   width: 100%;
+  box-shadow: 1px 1px 4px grey;
 }
 
 .navbar-header {

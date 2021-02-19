@@ -1,7 +1,5 @@
 import React, { useState } from "react";
 
-import { Link } from "react-router-dom";
-
 export default function Pagination({
   data,
   RenderComponent,
@@ -38,33 +36,36 @@ export default function Pagination({
 
   return (
     <div>
-      <h3>{title}</h3>
+      <h3 id="title">{title}</h3>
 
       <div className="profiles-container">
         {getPaginatedData().map((element, idx) => (
-          <Link
-            className="profile-links"
-            key={idx}
-            to={`/profile/${element.userId}`}
-          >
-            <RenderComponent
-              key={idx}
-              name={element.name}
-              profession={element.profession}
-              email={element.email}
-              telephone={element.telephone}
-              website={element.website}
-              photo={element.photo}
-            />
-          </Link>
+          <RenderComponent
+            key={element.userId}
+            id={element.userId}
+            name={element.name}
+            profession={element.profession}
+            email={element.email}
+            telephone={element.telephone}
+            website={element.website}
+            photo={element.photo}
+          />
         ))}
       </div>
       <div className="pagination">
-        <button onClick={goToPreviousPage} disabled={currentPage === 1}>
+        <button
+          className="button pagination-button"
+          onClick={goToPreviousPage}
+          disabled={currentPage === 1}
+        >
           prev
         </button>
-        <button onClick={goToNextPage} disabled={currentPage === pages}>
-          next
+        <button
+          className="button pagination-button"
+          onClick={goToNextPage}
+          disabled={currentPage === pages}
+        >
+          <a href="#title">next</a>
         </button>
         {/* show page numbers
         {getPaginationGroup().map((item, index) => (
