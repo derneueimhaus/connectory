@@ -8,21 +8,21 @@
 }
 
 .single-testimonial {
-  display: flex;
+  display: grid;
+  grid-template-columns: 15% 85%;
   max-height: 5rem;
 }
 
 .testimonial-img {
   position: relative;
-  max-height: 5rem;
+  height: 5rem;
   border-radius: 50%;
 }
 
 .testimonial-badge {
-  position: absolute;
-  display: inline-block;
-  z-index: 100;
-  color: purple;
+  position: relative;
+  left: -25px;
+  width: 2rem;
 }
 
 .testimonial-text {

@@ -41,8 +41,8 @@ export default function Pagination({
       <div className="profiles-container">
         {getPaginatedData().map((element, idx) => (
           <RenderComponent
-            key={element.userId}
-            id={element.userId}
+            key={element.id}
+            id={element.id}
             name={element.name}
             profession={element.profession}
             email={element.email}

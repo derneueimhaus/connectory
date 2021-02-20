@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 
 import { connect } from "react-redux";
 
@@ -26,7 +26,9 @@ function Profile({ match, modal }) {
   }, [match.params.userId]);
 
   return (
-    <div /*className={modal.show ? "modal-overlay" : null}*/>
+    <div
+      className="apply-padding" /*className={modal.show ? "modal-overlay" : null}*/
+    >
       {profileData && (
         <InfoCard
           data={profileData.userInfo}
@@ -36,7 +38,12 @@ function Profile({ match, modal }) {
         />
       )}
 
-      {profileData && <Testimonials data={profileData.testimonials} />}
+      {profileData && (
+        <Testimonials
+          data={profileData.testimonials}
+          userId={match.params.userId}
+        />
+      )}
       {profileData && <Projects data={profileData.projects} />}
       {profileData && <Experience data={profileData.experience} />}
 

@@ -1,10 +1,11 @@
-import React, { Component, useEffect, useState } from "react";
+import React, { Component } from "react";
 
 import { connect } from "react-redux";
 
 import { loadProfileData } from "../redux/actions/profileSettingsActions";
 
 import SettingsTabs from "../components/SettingsTabs";
+import Loading from "../components/Loading";
 
 export class Settings extends Component {
   constructor(props) {
@@ -28,7 +29,7 @@ export class Settings extends Component {
         <SettingsTabs profileData={this.props.profileData} />
       </div>
     ) : (
-      "Hol up"
+      <Loading />
     );
   }
 }

@@ -4,17 +4,6 @@ import { Link } from "react-router-dom";
 import ProfilesList from "../components/ProfilesList";
 import SearchFilter from "../components/SearchFilter";
 
-const professionsArray = [
-  "testA",
-  "testB",
-  "testC",
-  "testD",
-  "testA",
-  "testB",
-  "testC",
-  "testD",
-];
-
 export default function Home() {
   const [filterOptions, setFilterOptions] = useState("");
 

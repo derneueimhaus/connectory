@@ -14,7 +14,7 @@ export default function TestimonialsSettingsList({ testimonialsData }) {
         ]);
       }
     });
-  }, []);
+  }, [testimonialsData]);
 
   const handleCheckboxChange = (boolean, id) => {
     if (boolean === true) {
@@ -30,6 +30,7 @@ export default function TestimonialsSettingsList({ testimonialsData }) {
 
   return (
     <div>
+      <SaveSettings objKey="testimonials" />
       {testimonialsData
         ? testimonialsData.map((testimonial, i) => (
             <TestimonialsSettingsUnit

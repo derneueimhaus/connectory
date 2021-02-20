@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Cropper from "react-cropper";
 import "cropperjs/dist/cropper.css";
 
 const CropperWidget = ({ userPhoto, id, handleCropImage }) => {
   const [image, setImage] = useState(userPhoto);
-  const [cropData, setCropData] = useState("");
+  const [, setCropData] = useState("");
   const [cropper, setCropper] = useState();
 
   const onChange = (e) => {
@@ -69,7 +69,7 @@ const CropperWidget = ({ userPhoto, id, handleCropImage }) => {
           }}
         />
       </div>
-      <button onClick={getCropData}>Crop Image</button>
+      <button onClick={getCropData}>Save Image</button>
       <br />
     </div>
   );

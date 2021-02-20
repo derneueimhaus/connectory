@@ -10,6 +10,7 @@ import Settings from "./views/Settings";
 import Home from "./views/Home";
 import Profile from "./views/Profile";
 import Signup from "./views/Signup";
+import NewTestimonial from "./views/NewTestimonial";
 
 import "./styles/App.css";
 
@@ -25,6 +26,7 @@ function App() {
             <Route path="/signup" component={Signup} />
             <Route path="/settings/:userId" component={Settings} />
             <Route path="/profile/:userId" component={Profile} />
+            <Route path="/new-testimonial/:userId" component={NewTestimonial} />
           </Switch>
         </div>
       </Provider>
