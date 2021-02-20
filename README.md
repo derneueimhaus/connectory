@@ -8,4 +8,4 @@
 
 1. Naviagte to same folder as above
 2. `npm run stubapi` in your terminal, should load up `db.json` file on localhost:8080
-3. Send GET, POST, DELETE etc. as you would a normal API
+3. Send `GET`, `POST`, `DELETE` etc. as you would a normal API. The one caveat: to update an existing data object without overwriting it completely, use `PATCH` instead of `POST`.
