@@ -10,9 +10,7 @@ import {
 } from "../redux/actions/profileSettingsActions";
 import { editShare } from "../redux/actions/accountSettingsActions";
 
-// import ImageEditor from "../components/ImageEditor";
 import CropperModal from "../components/CropperModal";
-import CropperWidget from "../components/CropperWidget";
 
 import testPhoto from "../assets/blank.png";
 
@@ -85,7 +83,6 @@ class SignUpTwo extends Component {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
-        // "Access-Control-Allow-Origin": "*",
       },
       body: JSON.stringify({
         userInfo: newUserInfo,
@@ -106,17 +103,17 @@ class SignUpTwo extends Component {
         <div className="signup-page-header">
           <h1>Tell us about you.</h1>
           <h4>FIRST THINGS FIRST: SOME BASIC INFO</h4>
+          <img
+            className="settings-profile-img"
+            src={this.state.userPhoto}
+            alt="Profile"
+          />
           <button
             className="button"
             onClick={() => this.toggleModalShow(!this.state.modalShow)}
           >
             Add Profile Picture
           </button>
-          <img
-            className="settings-profile-img"
-            src={this.state.userPhoto}
-            alt="Profile"
-          />
           {this.state.modalShow && (
             <CropperModal
               toggleModalShow={this.toggleModalShow}
@@ -142,7 +139,7 @@ class SignUpTwo extends Component {
               >
                 <option value="default">SELECT PROFESSION...</option>
                 {this.state.professions.map((profession, i) => (
-                  <option key={i} value={profession.key}>
+                  <option key={i} value={profession.title}>
                     {profession.title}
                   </option>
                 ))}
@@ -160,7 +157,7 @@ class SignUpTwo extends Component {
               >
                 <option value="default">SELECT LOCATION...</option>
                 {this.state.locations.map((location, i) => (
-                  <option key={i} value={location.key}>
+                  <option key={i} value={location.title}>
                     {location.title}
                   </option>
                 ))}

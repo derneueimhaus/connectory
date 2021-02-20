@@ -10,7 +10,7 @@ export default function ExperienceInput({ data, index, handleSettingsChange }) {
             id={`${index}_input-title`}
             className="settings-input input-title"
             type="text"
-            defaultValue={data.title}
+            defaultValue={data.title && data.title}
             onChange={(e) => handleSettingsChange(e, data.expId, "title")}
           />
         </div>
@@ -20,7 +20,7 @@ export default function ExperienceInput({ data, index, handleSettingsChange }) {
             id={`${index}_input-company`}
             className="settings-input input-company"
             type="text"
-            defaultValue={data.company}
+            defaultValue={data.company && data.company}
             onChange={(e) => handleSettingsChange(e, data.expId, "company")}
           />
         </div>
@@ -34,7 +34,7 @@ export default function ExperienceInput({ data, index, handleSettingsChange }) {
             type="number"
             max="2100"
             min="1900"
-            defaultValue={data.yearStart}
+            defaultValue={data.yearStart && data.yearStart}
             onChange={(e) => handleSettingsChange(e, data.expId, "yearStart")}
           />
         </div>
@@ -46,7 +46,7 @@ export default function ExperienceInput({ data, index, handleSettingsChange }) {
             type="number"
             max="2100"
             min="1900"
-            defaultValue={data.yearEnd}
+            defaultValue={data.yearEnd && data.yearEnd}
             onChange={(e) => handleSettingsChange(e, data.expId, "yearEnd")}
           />
         </div>
@@ -57,7 +57,7 @@ export default function ExperienceInput({ data, index, handleSettingsChange }) {
           id={`${index}_input-exp-desc`}
           className="settings-input input-description"
           type="text"
-          defaultValue={data.description}
+          defaultValue={data.description && data.description}
           onChange={(e) => handleSettingsChange(e, data.expId, "description")}
         />
       </div>

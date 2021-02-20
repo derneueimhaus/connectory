@@ -176,8 +176,8 @@ export class ProfileSettings extends Component {
                   key={i}
                   value={profession.title}
                   selected={
-                    profession ===
-                    this.props.profileData.userInfo.profession.title
+                    profession.title ===
+                    this.props.profileData.userInfo.profession
                   }
                 >
                   {profession.title}
@@ -203,8 +203,8 @@ export class ProfileSettings extends Component {
                     key={i}
                     value={location.title}
                     selected={
-                      location ===
-                      this.props.profileData.userInfo.location.title
+                      location.title ===
+                      this.props.profileData.userInfo.location
                     }
                   >
                     {location.title}
@@ -217,7 +217,7 @@ export class ProfileSettings extends Component {
               <input
                 id="input-location"
                 className="settings-input input-telephone"
-                type="number"
+                type="tel"
                 defaultValue={this.props.profileData.userInfo.telephone}
                 onChange={(e) =>
                   this.handleUserInfoSettingsChange(e, "telephone")
@@ -241,7 +241,7 @@ export class ProfileSettings extends Component {
               <input
                 id="input-website"
                 className="settings-input input-website"
-                type="text"
+                type="url"
                 defaultValue={this.props.profileData.userInfo.website}
                 onChange={(e) =>
                   this.handleUserInfoSettingsChange(e, "website")
