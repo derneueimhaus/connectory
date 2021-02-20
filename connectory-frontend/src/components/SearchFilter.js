@@ -23,6 +23,19 @@ class SearchFilter extends Component {
     this.props.addSearchTerm(event.target.value);
   };
 
+  handleFormSubmit = async (e) => {
+    e.preventDefault();
+    await fetch("http://localhost:8080/search", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        searchTerm: this.state.searchTerm,
+      }),
+    });
+  };
+
   toggleFilters = (boolean) => {
     this.setState({ showFilters: boolean });
   };
@@ -34,11 +47,16 @@ class SearchFilter extends Component {
           <form className="search">
             <input
               className="search-box"
-              type="text"
+              type="search"
               placeholder="Know who you're looking for? Search for a name..."
               onChange={this.handleInputChange}
+              required
             />
-            <button className="button search-submit" type="submit">
+            <button
+              className="button search-submit"
+              type="submit"
+              onClick={this.handleFormSubmit}
+            >
               <Search className="search-filter-icon" />
               Go
             </button>

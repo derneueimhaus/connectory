@@ -11,11 +11,12 @@ import {
 import { editShare } from "../redux/actions/accountSettingsActions";
 
 // import ImageEditor from "../components/ImageEditor";
+import CropperModal from "../components/CropperModal";
 import CropperWidget from "../components/CropperWidget";
 
-import Switch from "react-switch";
-
 import testPhoto from "../assets/blank.png";
+
+import Switch from "react-switch";
 
 class SignUpTwo extends Component {
   constructor(props) {
@@ -26,6 +27,8 @@ class SignUpTwo extends Component {
       profession: "",
       location: "",
       description: "",
+      modalShow: false,
+      userPhoto: testPhoto,
     };
   }
 
@@ -51,6 +54,10 @@ class SignUpTwo extends Component {
       professions: settings.professions,
       locations: settings.locations,
     });
+  };
+
+  toggleModalShow = (boolean) => {
+    this.setState({ modalShow: boolean });
   };
 
   handleDropdownChange = (e, key, cb) => {
@@ -99,11 +106,25 @@ class SignUpTwo extends Component {
         <div className="signup-page-header">
           <h1>Tell us about you.</h1>
           <h4>FIRST THINGS FIRST: SOME BASIC INFO</h4>
-          <CropperWidget
-            userPhoto={testPhoto}
-            id={this.props.id}
-            handleCropImage={this.handleCropImage}
+          <button
+            className="button"
+            onClick={() => this.toggleModalShow(!this.state.modalShow)}
+          >
+            Add Profile Picture
+          </button>
+          <img
+            className="settings-profile-img"
+            src={this.state.userPhoto}
+            alt="Profile"
           />
+          {this.state.modalShow && (
+            <CropperModal
+              toggleModalShow={this.toggleModalShow}
+              handleCropImage={this.handleCropImage}
+              photo={this.state.userPhoto}
+              id={this.props.id}
+            />
+          )}
         </div>
         <div className="signup-form-container">
           <div className="signup-form">

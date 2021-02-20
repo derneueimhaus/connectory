@@ -53,6 +53,7 @@ const CropperWidget = ({ userPhoto, id, handleCropImage }) => {
         <Cropper
           style={{ height: 400, width: 400 }}
           initialAspectRatio={1}
+          aspectRatio={1}
           preview=".img-preview"
           src={image}
           viewMode={1}
