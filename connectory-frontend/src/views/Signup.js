@@ -9,7 +9,7 @@ function Signup() {
   const [userId, setUserId] = useState("");
 
   return (
-    <div className="signup-page-container">
+    <div className="signup-page-container apply-padding">
       <button onClick={() => setScreen(!screen)}>toggle screens</button>
       {!screen ? (
         <SignUpOne nextScreen={setScreen} setUserId={setUserId} />

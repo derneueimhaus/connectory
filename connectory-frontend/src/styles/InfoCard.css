@@ -1,5 +1,6 @@
 .info-card-container {
   display: flex;
+  flex-direction: column;
 }
 
 .below-line {
@@ -8,9 +9,14 @@
 }
 
 .profile-img {
-  max-height: 400px;
-  max-width: 400px;
+  position: relative;
+  width: 100vw;
 }
+
+/* .name-and-title {
+  position: absolute;
+  top: 0;
+} */
 
 .contact {
   flex-grow: 2;

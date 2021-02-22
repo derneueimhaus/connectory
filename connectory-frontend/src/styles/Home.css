@@ -1,0 +1,34 @@
+.home-page-header {
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  background-image: url(../assets/header-round.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  justify-items: center;
+  padding-top: 1em;
+  height: 250px;
+}
+
+.home-page-title {
+  align-self: center;
+  width: 90%;
+  font-weight: 700;
+  font-size: 32px;
+  color: white;
+}
+
+.sign-up-button-a {
+  align-self: center;
+}
+.sign-up-button {
+  background-color: var(--pink-buttons);
+}
+
+.headline {
+  margin: 10px 0;
+  padding: 2px;
+  border: 2px solid var(--border-grey);
+  box-shadow: 1px 1px 4px grey;
+  background-color: #e6f4f1;
+}

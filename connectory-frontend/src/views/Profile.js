@@ -27,7 +27,7 @@ function Profile({ match, modal }) {
 
   return (
     <div
-      className="apply-padding" /*className={modal.show ? "modal-overlay" : null}*/
+    /*className={modal.show ? "modal-overlay" : null}*/
     >
       {profileData && (
         <InfoCard

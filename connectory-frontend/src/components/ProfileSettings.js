@@ -9,6 +9,8 @@ import "../styles/Settings.css";
 import CropperWidget from "./CropperWidget";
 import SaveSettings from "./SaveSettings";
 
+import testPhoto from "../assets/blank.png";
+
 export class ProfileSettings extends Component {
   constructor(props) {
     super(props);
@@ -90,6 +92,19 @@ export class ProfileSettings extends Component {
     this.props.editProfileData(tempProfileData);
     this.setState({ image: photo });
   };
+
+  // handleDeleteImage = async () => {
+  //   await fetch(`http://localhost:8080/profile/${this.props.profileData.id}`, {
+  //     method: "patch",
+  //     headers: {
+  //       "Content-Type": "application/json",
+  //     },
+  //     body: JSON.stringify({ photo: testPhoto }),
+  //   })
+  //     .then((res) => res.json())
+  //     .catch((err) => console.log(err));
+  //   this.setState({ image: testPhoto });
+  // };
 
   render() {
     return (

@@ -17,10 +17,12 @@ export default class InfoCard extends Component {
             src={data.photo && data.photo}
             alt={data.name && data.name}
           />
-          <h4>{data.name && data.name}</h4>
-          <h5>{data.title && data.title}</h5>
+          <span className="name-and-title">
+            <h4>{data.name && data.name}</h4>
+            <h5>{data.title && data.title}</h5>
+          </span>
         </div>
-        <div className="details">
+        <div className="details apply-padding">
           <p>{data.description}</p>
           <span>{data.pro && "Pro"}</span>
           <hr style={{ border: "solid 1px purple" }} />

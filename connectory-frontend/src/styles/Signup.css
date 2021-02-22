@@ -5,15 +5,18 @@
   -o-background-size: cover;
   background-size: cover;
   opacity: 0.7;
+  position: absolute;
+  top: 0;
+  left: 0;
+  min-width: 90%;
+  min-height: 100%;
 }
 
 .signup-one-container {
-  /* background-repeat: no-repeat; */
-  /* background-position: center; */
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  padding-top: 10%;
   height: auto;
-  min-width: 100%;
 }
 
 .signup-page-header {
@@ -30,11 +33,14 @@
 .signup-form {
   height: 90%;
   width: 90%;
+  overflow: none;
   background-color: white;
   border-radius: 10px;
+  padding: 5px;
 }
 
 .signup-form form {
   display: flex;
   flex-direction: column;
+  max-height: inherit;
 }

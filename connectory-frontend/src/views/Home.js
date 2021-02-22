@@ -1,8 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import Headline from "../components/Headline";
 
 import ProfilesList from "../components/ProfilesList";
 import SearchFilter from "../components/SearchFilter";
+
+import "../styles/Home.css";
 
 export default function Home() {
   const [filterOptions, setFilterOptions] = useState("");
@@ -30,6 +33,7 @@ export default function Home() {
       </div>
       <div className="apply-padding">
         <SearchFilter filterOptions={filterOptions} />
+        <Headline />
         <ProfilesList />
       </div>
     </div>

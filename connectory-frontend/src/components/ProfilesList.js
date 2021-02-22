@@ -4,6 +4,7 @@ import ProfileCard from "./ProfileCard";
 
 import "../styles/ProfilesList.css";
 import Pagination from "./Pagination";
+import Loading from "./Loading";
 
 export default class ProfilesList extends Component {
   constructor(props) {
@@ -25,12 +26,11 @@ export default class ProfilesList extends Component {
       <Pagination
         data={this.state.profilesList}
         RenderComponent={ProfileCard}
-        title="Profiles"
         dataLimit={6}
         // pageLimit={5}
       />
     ) : (
-      "Looks like there's nothing here..."
+      <Loading />
     );
   }
 }

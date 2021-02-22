@@ -55,3 +55,11 @@
   height: 1em;
   margin: 0 2px;
 }
+
+.pro-badge {
+  float: right;
+  position: relative;
+  bottom: 55px;
+  right: 5px;
+  height: 3em;
+}

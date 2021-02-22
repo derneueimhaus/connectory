@@ -36,8 +36,6 @@ export default function Pagination({
 
   return (
     <div>
-      <h3 id="title">{title}</h3>
-
       <div className="profiles-container">
         {getPaginatedData().map((element, idx) => (
           <RenderComponent
@@ -49,6 +47,7 @@ export default function Pagination({
             telephone={element.telephone}
             website={element.website}
             photo={element.photo}
+            pro={element.pro}
           />
         ))}
       </div>
