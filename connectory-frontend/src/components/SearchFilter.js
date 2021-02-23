@@ -25,6 +25,9 @@ class SearchFilter extends Component {
 
   handleFormSubmit = async (e) => {
     e.preventDefault();
+    if (!this.state.searchTerm || !isNaN(this.state.searchTerm)) {
+      alert("Are you sure that's a name? 🤔");
+    }
     await fetch("http://localhost:8080/search", {
       method: "POST",
       headers: {
@@ -36,13 +39,14 @@ class SearchFilter extends Component {
     });
   };
 
-  toggleFilters = (boolean) => {
+  toggleFilters = (e, boolean) => {
+    e.preventDefault();
     this.setState({ showFilters: boolean });
   };
 
   render() {
     return (
-      <div>
+      <>
         <div className="homepage-selection">
           <form className="search">
             <input
@@ -50,29 +54,32 @@ class SearchFilter extends Component {
               type="search"
               placeholder="Know who you're looking for? Search for a name..."
               onChange={this.handleInputChange}
-              required
             />
             <button
-              className="button search-submit"
+              className="button search-submit search-buttons"
               type="submit"
               onClick={this.handleFormSubmit}
             >
               <Search className="search-filter-icon" />
               Go
             </button>
+            <button
+              className={
+                this.state.showFilters
+                  ? "button filters-toggle filters-toggle-show search-buttons"
+                  : "button filters-toggle search-buttons"
+              }
+              onClick={(e) => this.toggleFilters(e, !this.state.showFilters)}
+            >
+              Filters
+              <Filter className="search-filter-icon" />
+            </button>
           </form>
-          <button
-            className="button filters-toggle"
-            onClick={() => this.toggleFilters(!this.state.showFilters)}
-          >
-            <p>Filters</p>
-            <Filter className="search-filter-icon" />
-          </button>
         </div>
         {this.state.showFilters && (
           <Filters filterOptions={this.props.filterOptions} />
         )}
-      </div>
+      </>
     );
   }
 }

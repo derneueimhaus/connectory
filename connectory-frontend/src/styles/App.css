@@ -10,7 +10,7 @@
 }
 
 .navbar-dodger {
-  height: 64px;
+  height: clamp(56px, 6vw, 64px);
 }
 
 button {

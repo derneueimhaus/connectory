@@ -24,7 +24,7 @@ export default function ProfileCard({
     <Link className="profile-links" key={id} to={`/profile/${id}`}>
       <div className="profile-card">
         <div className="profile-card-header">
-          <p className="profile-card-name">{name}</p>
+          <p className="profile-card-name">{name.toUpperCase()}</p>
           <p className="profile-card-profession">{profession}</p>
         </div>
         <div>

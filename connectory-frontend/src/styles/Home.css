@@ -27,8 +27,7 @@
 
 .headline {
   margin: 10px 0;
-  padding: 2px;
-  border: 2px solid var(--border-grey);
-  box-shadow: 1px 1px 4px grey;
+  padding: 10px;
+  border-radius: 20px;
   background-color: #e6f4f1;
 }

@@ -2,6 +2,7 @@
   display: grid;
   grid-template-rows: 6;
   justify-content: center;
+  width: 100%;
 }
 
 .profile-links {

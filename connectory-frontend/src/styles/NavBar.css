@@ -33,7 +33,7 @@
   align-self: center;
   margin-left: 5px;
   text-decoration: none;
-  font-size: 28px;
+  font-size: clamp(1.3rem, 6vw, 2.1rem);
   font-weight: 900;
   color: var(--title-blue);
 }
@@ -55,7 +55,7 @@
 }
 
 .navbar-icon {
-  height: 2.5em;
+  height: clamp(2em, 6vw, 2.5em);
   margin: 5px;
   border-radius: 50px;
   border: 1px solid white;

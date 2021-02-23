@@ -18,7 +18,7 @@ export default class InfoCard extends Component {
             alt={data.name && data.name}
           />
           <span className="name-and-title">
-            <h4>{data.name && data.name}</h4>
+            <h4>{data.name && data.name.toUpperCase()}</h4>
             <h5>{data.title && data.title}</h5>
           </span>
         </div>
