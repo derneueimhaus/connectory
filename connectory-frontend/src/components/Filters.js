@@ -48,6 +48,7 @@ export class Filters extends Component {
         <form>
           <div>
             <select
+              className="filters-select-professions"
               name="Professions"
               multiple={true}
               onChange={(e) => this.handleDropdownChange(e)}
@@ -62,7 +63,12 @@ export class Filters extends Component {
               ))}
             </select>
             {this.state.professionValues.map((profession, i) => (
-              <span key={`${profession}_${i}`}>{profession}</span>
+              <span
+                className="filters-selected-professions"
+                key={`${profession}_${i}`}
+              >
+                {profession}
+              </span>
             ))}
           </div>
 
