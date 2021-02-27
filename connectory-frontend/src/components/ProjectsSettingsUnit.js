@@ -2,6 +2,8 @@ import React, { Component } from "react";
 
 import CropperWidget from "./CropperWidget";
 
+import logo from "../assets/Change=Logo.png";
+
 export default class ProjectsSettingsUnit extends Component {
   constructor(props) {
     super(props);
@@ -12,7 +14,10 @@ export default class ProjectsSettingsUnit extends Component {
   }
 
   handleCheck = (event) => {
-    console.log(event.target.name);
+    const {
+      target: { checked },
+    } = event;
+    this.props.handleCheckboxChange(checked, this.props.data.projectId);
   };
 
   toggleEditMode = (boolean) => {
@@ -65,7 +70,7 @@ export default class ProjectsSettingsUnit extends Component {
         <div className="settings-image">
           <img
             className="settings-project-img"
-            src={this.state.image}
+            src={this.state.image ? this.state.image : logo}
             alt="Project Backdrop"
           />
           <div className="image-controls">
@@ -77,7 +82,8 @@ export default class ProjectsSettingsUnit extends Component {
               id="show"
               type="checkbox"
               name={index}
-              defaultChecked={data.show}
+              checked={this.props.isSelected}
+              disabled={this.props.isDisabled}
               onChange={this.handleCheck}
             />
             <label htmlFor="show">Show on profile</label>

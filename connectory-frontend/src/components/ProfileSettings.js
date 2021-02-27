@@ -9,15 +9,12 @@ import "../styles/Settings.css";
 import CropperWidget from "./CropperWidget";
 import SaveSettings from "./SaveSettings";
 
-import testPhoto from "../assets/blank.png";
-
 export class ProfileSettings extends Component {
   constructor(props) {
     super(props);
     this.state = {
       image: "",
       editMode: false,
-      // scale: 1,
       professions: [],
       locations: [],
       profileData: "",
@@ -26,7 +23,6 @@ export class ProfileSettings extends Component {
 
   componentDidMount = async () => {
     this.getSettingsData();
-    // this.getProfileData();
   };
 
   getSettingsData = async () => {
@@ -38,15 +34,6 @@ export class ProfileSettings extends Component {
       locations: settings.locations,
     });
   };
-
-  // getProfileData = async () => {
-  //   const profileData = await fetch(
-  //     `http://localhost:8080/profile/${this.state.profileData.id}`
-  //   )
-  //     .then((res) => res.json())
-  //     .catch((err) => console.log(err));
-  //   this.setState({ profileData });
-  // };
 
   toggleEditMode = (boolean) => {
     this.setState({

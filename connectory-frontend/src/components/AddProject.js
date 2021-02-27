@@ -2,7 +2,7 @@ import React, { Component } from "react";
 
 import CropperWidget from "./CropperWidget";
 
-import logo from "../assets/logo.jpg";
+import logo from "../assets/Change=Logo.png";
 
 export default class AddProject extends Component {
   constructor(props) {
