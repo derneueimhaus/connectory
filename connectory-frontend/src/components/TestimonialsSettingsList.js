@@ -4,55 +4,49 @@ import TestimonialsSettingsUnit from "./TestimonialsSettingsUnit";
 
 export default function TestimonialsSettingsList({ testimonialsData }) {
   const [selectedTestimonials, setSelectedTestimonials] = useState([]);
-  const [showCount, setShowCount] = useState(0);
+  const [testimonials, setTestimonials] = useState(testimonialsData);
 
   useEffect(() => {
-    testimonialsData.forEach((testimonial) => {
-      if (testimonial.show === true) {
-        setSelectedTestimonials((prevState) => [
-          ...prevState,
-          testimonial.testimonialId,
-        ]);
-        setShowCount((s) => s + 1);
-      }
-    });
-  }, [testimonialsData]);
+    const selectedTestimonials = testimonials
+      .filter(({ show }) => show)
+      .map(({ testimonialId }) => testimonialId);
+    setSelectedTestimonials(selectedTestimonials);
+  }, [testimonials]);
 
-  const handleCheckboxChange = (e, boolean, id) => {
-    // if (showCount === 2 && boolean === true) {
-    //   alert(
-    //     'You can select a maximum of two testimonials to display. If you want to change testimonials, please deselect "Show on profile" for another testimonial.'
-    //   );
-    //   e.stopPropagation();
-    //   return;
-    // }
-    if (boolean === true) {
-      setSelectedTestimonials((prevState) => [...prevState, id]);
-      setShowCount((s) => s + 1);
-    } else {
-      const newArray = [...selectedTestimonials];
-      const elementIndex = newArray.find((element) => element === id);
-      newArray.splice(newArray.indexOf(elementIndex), 1);
-      console.log(newArray);
-      setSelectedTestimonials(newArray);
-      setShowCount((s) => s - 1);
-    }
+  const handleCheckboxChange = (show, testimonialId) => {
+    const updatedTestimonials = testimonials.map((testimonial) => {
+      if (testimonial.testimonialId === testimonialId) {
+        return {
+          ...testimonial,
+          show,
+        };
+      }
+      return testimonial;
+    });
+    setTestimonials(updatedTestimonials);
   };
 
   return (
     <div>
       <SaveSettings objKey="testimonials" />
+      <p>You can add a maximum of two testimonials to your profile page.</p>
       {testimonialsData
-        ? testimonialsData.map((testimonial, i) => (
-            <TestimonialsSettingsUnit
-              key={testimonial.testimonialId}
-              index={i}
-              data={testimonial}
-              selectedTestimonials={selectedTestimonials}
-              handleCheckboxChange={handleCheckboxChange}
-              showCount={showCount}
-            />
-          ))
+        ? testimonials.map((testimonial, i) => {
+            const isSelected = selectedTestimonials.includes(
+              testimonial.testimonialId
+            );
+            const isDisabled = !isSelected && selectedTestimonials.length === 2;
+            return (
+              <TestimonialsSettingsUnit
+                key={testimonial.testimonialId}
+                index={i}
+                data={testimonial}
+                handleCheckboxChange={handleCheckboxChange}
+                isSelected={isSelected}
+                isDisabled={isDisabled}
+              />
+            );
+          })
         : "Loading..."}
     </div>
   );
