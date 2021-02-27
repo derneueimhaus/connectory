@@ -1,11 +1,4 @@
-:root {
-  --title-blue: #2086c3;
-  --green-buttons: #1ca68d;
-  --pink-buttons: #e2245d;
-  --border-grey: #4d4d4d;
-  --background-pale-green: #f3fbfa;
-  --imperial-purple: #593886;
-}
+@import "theme";
 
 .apply-padding {
   padding: 0 5%;

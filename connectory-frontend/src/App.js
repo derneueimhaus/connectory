@@ -12,7 +12,7 @@ import Profile from "./views/Profile";
 import Signup from "./views/Signup";
 import NewTestimonial from "./views/NewTestimonial";
 
-import "./styles/App.css";
+import "./styles/App.scss";
 
 function App() {
   return (

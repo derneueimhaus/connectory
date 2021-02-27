@@ -5,7 +5,7 @@ import Headline from "../components/Headline";
 import ProfilesList from "../components/ProfilesList";
 import SearchFilter from "../components/SearchFilter";
 
-import "../styles/Home.css";
+import "../styles/Home.scss";
 
 export default function Home() {
   const [filterOptions, setFilterOptions] = useState("");
