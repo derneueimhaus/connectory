@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-import ImageEditor from "./ImageEditor";
+import CropperWidget from "./CropperWidget";
 
 export default class ProjectsSettingsUnit extends Component {
   constructor(props) {
@@ -88,12 +88,10 @@ export default class ProjectsSettingsUnit extends Component {
           </div>
         </div>
         {this.state.editMode && (
-          <ImageEditor
-            handleSave={this.handleChildImageSave}
-            height={200}
-            width={400}
-            borderRadius={20}
-            photo={this.state.image}
+          <CropperWidget
+            handleCropImage={this.handleChildImageSave}
+            userPhoto={this.state.image}
+            aspectRatio={2 / 1}
           />
         )}
         <hr style={{ border: "solid 1px purple" }} />

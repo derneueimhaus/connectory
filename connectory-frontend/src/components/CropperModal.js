@@ -6,7 +6,6 @@ import CropperWidget from "./CropperWidget";
 export default function CropperModal({
   toggleModalShow,
   handleCropImage,
-  id,
   photo,
 }) {
   return (
@@ -14,8 +13,8 @@ export default function CropperModal({
       Test
       <CropperWidget
         userPhoto={photo}
-        id={id}
         handleCropImage={handleCropImage}
+        aspectRatio={1}
       />
       <button className="sticky-btn" onClick={() => toggleModalShow(false)}>
         Close

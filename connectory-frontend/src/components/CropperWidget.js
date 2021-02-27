@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Cropper from "react-cropper";
 import "cropperjs/dist/cropper.css";
 
-const CropperWidget = ({ userPhoto, id, handleCropImage }) => {
+const CropperWidget = ({ userPhoto, handleCropImage, aspectRatio }) => {
   const [image, setImage] = useState(userPhoto);
   const [, setCropData] = useState("");
   const [cropper, setCropper] = useState();
@@ -24,25 +24,6 @@ const CropperWidget = ({ userPhoto, id, handleCropImage }) => {
     }
   };
 
-  // useEffect(() => {
-  //   if (cropData) {
-  //     postImage(cropData);
-  //   }
-  //   // eslint-disable-next-line react-hooks/exhaustive-deps
-  // }, [cropData]);
-
-  // async function postImage() {
-  //   await fetch(`http://localhost:8080/profile/`, {
-  //     method: "POST",
-  //     headers: {
-  //       "Content-Type": "application/json",
-  //     },
-  //     body: JSON.stringify({
-  //       croppedPhoto: cropData,
-  //     }),
-  //   });
-  // }
-
   return (
     <div>
       <br />
@@ -52,8 +33,8 @@ const CropperWidget = ({ userPhoto, id, handleCropImage }) => {
         <br />
         <Cropper
           style={{ height: 400, width: 400 }}
-          initialAspectRatio={1}
-          aspectRatio={1}
+          initialAspectRatio={aspectRatio}
+          aspectRatio={aspectRatio}
           preview=".img-preview"
           src={image}
           viewMode={1}

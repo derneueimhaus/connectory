@@ -136,8 +136,8 @@ export class ProfileSettings extends Component {
           <div>
             <CropperWidget
               userPhoto={this.props.profileData.userInfo.photo}
-              id={this.props.profileData.id}
               handleCropImage={this.handleCropImage}
+              aspectRatio={1}
             />
           </div>
         )}

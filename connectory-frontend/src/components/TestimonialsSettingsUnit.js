@@ -2,20 +2,23 @@ import React from "react";
 
 import "../styles/Settings.css";
 
-export default function TestimonialsSettingsUnit({
+const TestimonialsSettingsUnit = ({
   data,
   index,
   handleCheckboxChange,
   isSelected,
   isDisabled,
-}) {
+}) => {
   const handleCheck = (event) => {
     const {
       target: { checked },
     } = event;
-    console.log(checked);
     handleCheckboxChange(checked, data.testimonialId);
   };
+
+  // const handleDelete = async () => {
+  //   await fetch(`http://localhost:8080/profile/`);
+  // };
 
   return (
     <div className="settings-testimonials-container">
@@ -59,4 +62,6 @@ export default function TestimonialsSettingsUnit({
       <hr style={{ border: "solid 1px purple" }} />
     </div>
   );
-}
+};
+
+export default TestimonialsSettingsUnit;
