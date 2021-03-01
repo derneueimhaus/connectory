@@ -4,6 +4,8 @@ import Checkboxes from "./Checkboxes";
 import { connect } from "react-redux";
 import { clearFilters } from "../redux/actions/filterActions";
 
+import "../styles/Filters.scss";
+
 export class Filters extends Component {
   constructor(props) {
     super(props);
@@ -44,24 +46,29 @@ export class Filters extends Component {
       this.props.filterOptions[2],
     ];
     return (
-      <div>
-        <form>
-          <div>
-            <select
-              className="filters-select-professions"
-              name="Professions"
-              multiple={true}
-              onChange={(e) => this.handleDropdownChange(e)}
-            >
-              <option value="default" disabled={true}>
-                SELECT PROFESSION...
+      <form className="filters-container">
+        <div>
+          <label className="filter-label">
+            {this.props.filterOptions[0].title}
+          </label>
+          <br />
+          <br />
+          <select
+            className="filters-select-professions"
+            name="Professions"
+            multiple={true}
+            onChange={(e) => this.handleDropdownChange(e)}
+          >
+            <option value="default" disabled={true}>
+              SELECT PROFESSION...
+            </option>
+            {this.props.filterOptions[0].options.map((profession) => (
+              <option key={profession.key} value={profession.title}>
+                {profession.title}
               </option>
-              {this.props.filterOptions[1].options.map((profession) => (
-                <option key={profession.key} value={profession.title}>
-                  {profession.title}
-                </option>
-              ))}
-            </select>
+            ))}
+          </select>
+          <div className="filters-selected-professions-container">
             {this.state.professionValues.map((profession, i) => (
               <span
                 className="filters-selected-professions"
@@ -71,22 +78,30 @@ export class Filters extends Component {
               </span>
             ))}
           </div>
+        </div>
 
-          {checkboxData.map((obj) => (
-            <Checkboxes
-              title={obj.title}
-              options={obj.options}
-              key={obj.title}
-            />
-          ))}
-          <button type="reset" onClick={this.handleReset}>
-            Clear Filters
+        {checkboxData.map((obj) => (
+          <Checkboxes title={obj.title} options={obj.options} key={obj.title} />
+        ))}
+        <br />
+        <hr />
+        <div className="filters-form-buttons-container">
+          <button
+            className="button filters-form-button filters-clear-button"
+            type="reset"
+            onClick={this.handleReset}
+          >
+            CLEAR FILTER
           </button>
-          <button type="submit" onClick={this.handleFormSubmit}>
-            Apply Filters
+          <button
+            className="button filters-form-button filters-apply-button"
+            type="submit"
+            onClick={this.handleFormSubmit}
+          >
+            APPLY FILTER
           </button>
-        </form>
-      </div>
+        </div>
+      </form>
     );
   }
 }

@@ -27,11 +27,10 @@ class Checkboxes extends Component {
   render() {
     const { title, options } = this.props;
     return (
-      <div>
-        <p>{title}</p>
+      <div className="filter-checkbox-container">
+        <p className="filter-label">{title}</p>
         {options.map((option) => (
-          <span key={option.key}>
-            <label>{option.title}</label>
+          <span className="filter-box-label" key={option.key}>
             <input
               id={option.key}
               type="checkbox"
@@ -39,6 +38,8 @@ class Checkboxes extends Component {
               value={option.title}
               onClick={this.handleSelection}
             />
+            <span className="checkmark"></span>
+            <label htmlFor={option.key}>{option.title}</label>
           </span>
         ))}
       </div>

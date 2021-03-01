@@ -321,28 +321,7 @@
   ],
   "filteroptions": [
     {
-      "title": "locations",
-      "options": [
-        {
-          "title": "Change= ZO",
-          "key": "chzo"
-        },
-        {
-          "title": "Change= NW",
-          "key": "chnw"
-        },
-        {
-          "title": "Change= PRO",
-          "key": "chpro"
-        },
-        {
-          "title": "Change= Alumni",
-          "key": "chalum"
-        }
-      ]
-    },
-    {
-      "title": "professions",
+      "title": "Professions",
       "options": [
         {
           "title": "Marketing",
@@ -363,7 +342,28 @@
       ]
     },
     {
-      "title": "contact",
+      "title": "Locations",
+      "options": [
+        {
+          "title": "Change= ZO",
+          "key": "chzo"
+        },
+        {
+          "title": "Change= NW",
+          "key": "chnw"
+        },
+        {
+          "title": "Change= PRO",
+          "key": "chpro"
+        },
+        {
+          "title": "Change= Alumni",
+          "key": "chalum"
+        }
+      ]
+    },
+    {
+      "title": "Contact",
       "options": [
         {
           "title": "Phone",

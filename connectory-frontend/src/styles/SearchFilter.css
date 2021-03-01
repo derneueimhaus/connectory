@@ -61,21 +61,6 @@
   width: 1em;
 }
 
-/* filters expanded */
-.filters-select-professions {
-  height: 8em;
-  width: 100%;
-  border: 1px solid var(--border-grey);
-}
-
-.filters-selected-professions {
-  border-radius: 10px;
-  margin: 3px;
-  padding: 7px;
-  background-color: var(--imperial-purple);
-  color: white;
-}
-
 @media screen and (min-width: 600px) {
   .homepage-selection {
     display: flex;
