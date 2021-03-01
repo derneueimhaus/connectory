@@ -36,7 +36,7 @@ export default function Pagination({
 
   return (
     <div>
-      <div className="profiles-container">
+      <div className="profiles-container" id="profiles-container">
         {getPaginatedData().map((element, idx) => (
           <RenderComponent
             key={element.id}
@@ -52,20 +52,24 @@ export default function Pagination({
         ))}
       </div>
       <div className="pagination">
-        <button
-          className="button pagination-button"
-          onClick={goToPreviousPage}
-          disabled={currentPage === 1}
-        >
-          prev
-        </button>
-        <button
-          className="button pagination-button"
-          onClick={goToNextPage}
-          disabled={currentPage === pages}
-        >
-          <a href="#title">next</a>
-        </button>
+        <a href="#headline">
+          <button
+            className="button pagination-button"
+            onClick={goToPreviousPage}
+            disabled={currentPage === 1}
+          >
+            PREV
+          </button>
+        </a>
+        <a href="#headline">
+          <button
+            className="button pagination-button"
+            onClick={goToNextPage}
+            disabled={currentPage === pages}
+          >
+            NEXT
+          </button>
+        </a>
         {/* show page numbers
         {getPaginationGroup().map((item, index) => (
           <button

@@ -1,25 +1,42 @@
 .profiles-container {
   display: grid;
-  grid-template-rows: 6;
   justify-content: center;
   width: 100%;
 }
 
 .profile-links {
+  display: flex;
+  justify-content: center;
   margin: 10px;
   text-decoration: none;
 }
 
 .pagination {
-  float: right;
+  display: flex;
+  margin-bottom: 10px;
+  justify-content: space-between;
 }
 
 .pagination-button {
-  background-color: var(--title-blue);
+  background-color: var(--pink-buttons);
   margin: 0 5px;
+  padding: 5px 15px;
 }
 
 .pagination-button:disabled {
   background-color: #2087c362;
   margin: 0 5px;
+  box-shadow: none;
+}
+
+@media screen and (min-width: 600px) {
+  .profiles-container {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .profiles-container {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
 }

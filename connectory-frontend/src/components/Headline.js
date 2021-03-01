@@ -16,7 +16,7 @@ export default function Headline() {
     fetchHeadline();
   }, []);
   return fetched ? (
-    <div className="headline">
+    <div className="headline" id="headline">
       <span>
         <strong>{headline.headline}</strong>
       </span>{" "}
