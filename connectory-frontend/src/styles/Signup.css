@@ -1,21 +1,22 @@
-.signup-page-container {
+.signup-page-container::before {
+  content: "";
   background: url(../assets/back-blauw.png) no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
-  opacity: 0.7;
   position: absolute;
+  opacity: 0.7;
   top: 0;
   left: 0;
-  min-width: 90%;
-  min-height: 100%;
+  width: 100vw;
+  min-height: 100vh;
+  z-index: -1;
 }
 
 .signup-one-container {
   display: grid;
-  grid-template-rows: 1fr 1fr;
-  padding-top: 10%;
+  grid-template-rows: 25% 75%;
   height: auto;
 }
 
@@ -24,23 +25,66 @@
   text-shadow: 2px 2px #777;
 }
 
+.signup-page-header h1 {
+  font-weight: 900;
+  font-size: clamp(36px, 6vw, 50px);
+}
+
+.signup-page-header h4 {
+  font-weight: 450;
+  font-size: 20px;
+}
+
 .signup-form-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  margin: 0;
+  height: calc((100vh * 70 / 100) - 64px);
 }
 
 .signup-form {
-  height: 90%;
-  width: 90%;
-  overflow: none;
+  display: flex;
+  flex-direction: column;
   background-color: white;
   border-radius: 10px;
-  padding: 5px;
+  padding: 10px;
 }
 
 .signup-form form {
   display: flex;
   flex-direction: column;
   max-height: inherit;
+  padding: 0 5px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+  margin: 10px 0;
+  height: 1.8rem;
+  outline: 0;
+  border-width: 0 0 2px;
+  border-color: var(--title-blue);
+  color: black;
+  font-size: 20px;
+  font-weight: 500;
+}
+
+::placeholder {
+  color: black;
+  font-size: 20px;
+  font-weight: 400;
+}
+
+.signup-email-disclaimer {
+  margin-top: -5px;
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--title-blue);
+}
+
+.signup-button {
+  align-self: center;
+  max-width: 400px;
+  width: 100%;
+  background-color: var(--pink-buttons);
+  padding: 10px 20px;
 }

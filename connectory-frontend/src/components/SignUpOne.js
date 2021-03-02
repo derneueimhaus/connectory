@@ -50,58 +50,60 @@ class SignUpOne extends Component {
           <h4>SIGN IN TO OUR DIGITAL WORKSPACE</h4>
         </div>
         <div className="signup-form-container">
-          <div className="signup-form">
-            <form onSubmit={this.handleSubmitInfo}>
-              <input
-                id="input-first-name"
-                className="signup-input input-first-name"
-                type="text"
-                placeholder="FIRST NAME"
-                onChange={(e) => this.props.addSignupFirstName(e.target.value)}
-                required
-              />
-              <input
-                id="input-last-name"
-                className="signup-input input-last-name"
-                type="text"
-                placeholder="LAST NAME"
-                onChange={(e) => this.props.addSignupLastName(e.target.value)}
-                required
-              />
-              <input
-                id="input-email"
-                className="signup-input input-email"
-                type="email"
-                placeholder="EMAIL"
-                onChange={(e) => this.props.addSignupEmail(e.target.value)}
-                required
-              />
-              <p>
-                Please use the same email addres as your registered Change=
-                account. Don't have a Change= account?{" "}
-                <a href="https://www.change-is.com/nl/living" targt="_blank">
-                  Click here to make one
-                </a>
-              </p>
-              <input
-                id="input-password"
-                className="signup-input input-password"
-                type="password"
-                placeholder="CHANGE= PASSWORD"
-                onChange={(e) => this.props.addSignupPassword(e.target.value)}
-                required
-              />
-              <input
-                id="input-password-confirm"
-                className="signup-input input-password"
-                type="password"
-                placeholder="CONFIRM PASSWORD"
-                onChange={(e) => this.props.addSignupConfirm(e.target.value)}
-                required
-              />
-              <input type="submit" value="Sign Up" />
-            </form>
-          </div>
+          <form className="signup-form" onSubmit={this.handleSubmitInfo}>
+            <input
+              id="input-first-name"
+              className="signup-input input-first-name"
+              type="text"
+              placeholder="FIRST NAME"
+              onChange={(e) => this.props.addSignupFirstName(e.target.value)}
+              required
+            />
+            <input
+              id="input-last-name"
+              className="signup-input input-last-name"
+              type="text"
+              placeholder="LAST NAME"
+              onChange={(e) => this.props.addSignupLastName(e.target.value)}
+              required
+            />
+            <input
+              id="input-email"
+              className="signup-input input-email"
+              type="email"
+              placeholder="EMAIL"
+              onChange={(e) => this.props.addSignupEmail(e.target.value)}
+              required
+            />
+            <p className="signup-email-disclaimer">
+              Please use the same email address as your registered Change=
+              account. Don't have a Change= account?{" "}
+              <a href="https://www.change-is.com/nl/living" targt="_blank">
+                <strong>Click here to make one</strong>
+              </a>
+            </p>
+            <input
+              id="input-password"
+              className="signup-input input-password"
+              type="password"
+              placeholder="CHANGE= PASSWORD"
+              onChange={(e) => this.props.addSignupPassword(e.target.value)}
+              required
+            />
+            <input
+              id="input-password-confirm"
+              className="signup-input input-password"
+              type="password"
+              placeholder="CONFIRM PASSWORD"
+              onChange={(e) => this.props.addSignupConfirm(e.target.value)}
+              required
+            />
+            <input
+              className="button signup-button"
+              type="submit"
+              value="SIGN UP"
+            />
+          </form>
         </div>
       </div>
     );

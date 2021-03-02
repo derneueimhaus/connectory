@@ -60,7 +60,7 @@ export class Filters extends Component {
             onChange={(e) => this.handleDropdownChange(e)}
           >
             <option value="default" disabled={true}>
-              SELECT PROFESSION...
+              Select...
             </option>
             {this.props.filterOptions[0].options.map((profession) => (
               <option key={profession.key} value={profession.title}>
@@ -68,7 +68,7 @@ export class Filters extends Component {
               </option>
             ))}
           </select>
-          <div className="filters-selected-professions-container">
+          {/* <div className="filters-selected-professions-container">
             {this.state.professionValues.map((profession, i) => (
               <span
                 className="filters-selected-professions"
@@ -77,7 +77,7 @@ export class Filters extends Component {
                 {profession}
               </span>
             ))}
-          </div>
+          </div> */}
         </div>
 
         {checkboxData.map((obj) => (

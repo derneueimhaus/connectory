@@ -10,7 +10,7 @@ function Signup() {
 
   return (
     <div className="signup-page-container apply-padding">
-      <button onClick={() => setScreen(!screen)}>toggle screens</button>
+      <div className="navbar-dodger"></div>
       {!screen ? (
         <SignUpOne nextScreen={setScreen} setUserId={setUserId} />
       ) : (

@@ -16,18 +16,17 @@
   border: 1px solid var(--border-grey);
 }
 
-// .filters-selected-professions-container {
-//   height: 400px;
-//   background-color: red;
-// }
-
-.filters-selected-professions {
-  border-radius: 10px;
-  padding: 7px;
-  background-color: var(--imperial-purple);
-  font-size: 14px;
-  color: white;
+select[multiple] {
+  font-size: 16px;
 }
+
+// .filters-selected-professions {
+//   border-radius: 10px;
+//   padding: 7px;
+//   background-color: var(--background-pale-green);
+//   font-size: 14px;
+//   color: var(--border-grey);
+// }
 
 .filter-checkbox-container {
   display: flex;
