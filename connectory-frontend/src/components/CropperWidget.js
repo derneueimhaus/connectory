@@ -25,20 +25,21 @@ const CropperWidget = ({ userPhoto, handleCropImage, aspectRatio }) => {
   };
 
   return (
-    <div>
+    <div className="cropper">
       <br />
       <div>
         <input type="file" onChange={onChange} />
         <br />
         <br />
         <Cropper
-          style={{ height: 400, width: 400 }}
+          style={{ height: "90%", width: "90%" }}
           initialAspectRatio={aspectRatio}
           aspectRatio={aspectRatio}
           preview=".img-preview"
           src={image}
           viewMode={1}
           guides={true}
+          dragMode={"move"}
           minCropBoxHeight={10}
           minCropBoxWidth={10}
           background={false}
@@ -50,7 +51,9 @@ const CropperWidget = ({ userPhoto, handleCropImage, aspectRatio }) => {
           }}
         />
       </div>
-      <button onClick={getCropData}>Save Image</button>
+      <button className="button save-cropper-button" onClick={getCropData}>
+        Save Image
+      </button>
       <br />
     </div>
   );

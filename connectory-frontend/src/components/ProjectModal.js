@@ -3,7 +3,7 @@ import React from "react";
 import { connect } from "react-redux";
 import { toggleModal } from "../redux/actions/modalActions";
 
-import "../styles/ProjectModal.css";
+import "../styles/Modals.css";
 
 function ProjectModal(props) {
   return (

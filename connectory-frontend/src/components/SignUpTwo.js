@@ -69,6 +69,11 @@ class SignUpTwo extends Component {
 
   handleCropImage = (photo) => {
     this.setState({ userPhoto: photo });
+    if (window.confirm("Saved! Are you done editing?")) {
+      this.toggleModalShow(false);
+    } else {
+      return;
+    }
   };
 
   handleSubmitInfo = async (e) => {
@@ -99,31 +104,33 @@ class SignUpTwo extends Component {
 
   render() {
     return (
-      <div className="signup-one-container">
+      <div className="signup-two-container">
+        {this.state.modalShow && (
+          <CropperModal
+            toggleModalShow={this.toggleModalShow}
+            handleCropImage={this.handleCropImage}
+            photo={this.state.userPhoto}
+            id={this.props.id}
+          />
+        )}
         <div className="signup-page-header">
           <h1>Tell us about you.</h1>
           <h4>FIRST THINGS FIRST: SOME BASIC INFO</h4>
+        </div>
+        <div className="signup-two-image-select">
           <img
             className="settings-profile-img"
             src={this.state.userPhoto}
             alt="Profile"
           />
           <button
-            className="button"
+            className="button signup-two-add-picture-button"
             onClick={() => this.toggleModalShow(!this.state.modalShow)}
           >
-            Add Profile Picture
+            ADD PROFILE PICTURE
           </button>
-          {this.state.modalShow && (
-            <CropperModal
-              toggleModalShow={this.toggleModalShow}
-              handleCropImage={this.handleCropImage}
-              photo={this.state.userPhoto}
-              id={this.props.id}
-            />
-          )}
         </div>
-        <div className="signup-form-container">
+        <div className="signup-form-two-container">
           <div className="signup-form">
             <form onSubmit={this.handleSubmitInfo}>
               <select

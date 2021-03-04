@@ -18,6 +18,13 @@
 .settings-profile-img {
   height: 200px;
   width: 200px;
+  border-radius: 100px;
+}
+
+.save-cropper-button {
+  background-color: var(--title-blue);
+  margin: 10px 0;
+  padding: 5px 10px;
 }
 
 .input-label-pair {

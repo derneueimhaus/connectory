@@ -1,3 +1,10 @@
+.signup-page-container {
+  overflow: hidden;
+  position: relative;
+  min-height: 100vh;
+  padding-bottom: 15px !important;
+}
+
 .signup-page-container::before {
   content: "";
   background: url(../assets/back-blauw.png) no-repeat center center fixed;
@@ -5,7 +12,7 @@
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
-  position: absolute;
+  position: fixed;
   opacity: 0.7;
   top: 0;
   left: 0;
@@ -26,16 +33,19 @@
 }
 
 .signup-page-header h1 {
+  margin: 0;
   font-weight: 900;
   font-size: clamp(36px, 6vw, 50px);
 }
 
 .signup-page-header h4 {
+  margin: 10px 0;
   font-weight: 450;
   font-size: 20px;
 }
 
 .signup-form-container {
+  place-self: center;
   margin: 0;
   height: calc((100vh * 70 / 100) - 64px);
 }
@@ -55,9 +65,9 @@
   padding: 0 5px;
 }
 
-input[type="text"],
-input[type="email"],
-input[type="password"] {
+.signup-form input[type="text"],
+.signup-form input[type="email"],
+.signup-form input[type="password"] {
   margin: 10px 0;
   height: 1.8rem;
   outline: 0;
@@ -68,7 +78,7 @@ input[type="password"] {
   font-weight: 500;
 }
 
-::placeholder {
+.signup-form::placeholder {
   color: black;
   font-size: 20px;
   font-weight: 400;
@@ -87,4 +97,31 @@ input[type="password"] {
   width: 100%;
   background-color: var(--pink-buttons);
   padding: 10px 20px;
+}
+
+/* alternative signup two styling */
+.signup-two-container {
+  position: relative;
+  display: grid;
+  grid-template-rows: 8em 16em 16em;
+  /* min-height: 10rem; */
+}
+
+.signup-two-image-select {
+  place-self: start center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.signup-two-add-picture-button {
+  margin: 10px;
+  padding: 10px 15px;
+  background-color: var(--title-blue);
+  box-shadow: 1px 1px 4px var(--border-grey) !important;
+}
+
+.signup-form-two-container {
+  grid-row-start: 3;
+  place-self: center;
 }
